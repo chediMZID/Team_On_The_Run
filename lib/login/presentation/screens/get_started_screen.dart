@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:totr/core/theme/colors.dart';
+//import 'package:totr/core/theme/colors.dart';
 import 'package:totr/core/theme/sizes.dart';
-import 'package:totr/login/presentation/component/custom_button.dart';
+import 'package:totr/shared_widgets/custom_button.dart';
 import 'package:totr/login/presentation/screens/company_id_screen.dart';
 
 class GetStartedScreen extends StatelessWidget {
@@ -10,7 +10,7 @@ class GetStartedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kNeutralColor100,
+      //backgroundColor: kNeutralColor100,
       body: Padding(
         padding:  EdgeInsets.symmetric(horizontal: Sizes.x15,vertical: Sizes.x20),
         child: Column(
@@ -25,19 +25,14 @@ class GetStartedScreen extends StatelessWidget {
                   Image.asset('assets/images/zetalogo.png'),
                   RichText(
                     text:TextSpan(
-                      style: TextStyle(
-                          color: kPrimarColor0,
-                          fontFamily: 'RedHatMono',
-                          fontSize: Sizes.x30
-                      ),
                       children: [
                         TextSpan(
                           text: 'ZETA',
-                          style: TextStyle(fontWeight: FontWeight.w700),
+                          style: Theme.of(context).textTheme.titleLarge,
                         ),
                         TextSpan(
                           text: 'link',
-                          style: TextStyle(fontWeight:FontWeight.w400)
+                          style:Theme.of(context).textTheme.titleMedium,
                         )
                       ],
                     )
@@ -50,7 +45,7 @@ class GetStartedScreen extends StatelessWidget {
                   onPressed: (){
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context)=> CompanyIDScreen())
+                      MaterialPageRoute(builder: (context)=> const CompanyIDScreen())
                     );
                   },
                   text: 'Get started',

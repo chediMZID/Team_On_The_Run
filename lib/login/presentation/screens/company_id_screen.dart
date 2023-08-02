@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:totr/login/presentation/component/custom_button.dart';
+import 'package:totr/shared_widgets/custom_button.dart';
 
 import '../../../core/theme/colors.dart';
 import '../../../core/theme/sizes.dart';
@@ -12,7 +12,6 @@ class CompanyIDScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kNeutralColor100,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -25,19 +24,14 @@ class CompanyIDScreen extends StatelessWidget {
                 Image.asset('assets/images/zetalogo.png'),
                 RichText(
                     text:TextSpan(
-                      style: TextStyle(
-                          color: kPrimarColor0,
-                          fontFamily: 'RedHatMono',
-                          fontSize: Sizes.x30
-                      ),
                       children: [
                         TextSpan(
                           text: 'ZETA',
-                          style: TextStyle(fontWeight: FontWeight.w700),
+                          style: Theme.of(context).textTheme.titleLarge,
                         ),
                         TextSpan(
                             text: 'link',
-                            style: TextStyle(fontWeight:FontWeight.w400)
+                            style: Theme.of(context).textTheme.titleMedium,
                         )
                       ],
                     )
@@ -50,14 +44,14 @@ class CompanyIDScreen extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.only(top: 20.0),
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
                   bottomLeft: Radius.zero,
                   bottomRight: Radius.zero,
                 ),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     //color: Color(0x2E14243E),
                     color: kNeutralColor700,
@@ -72,17 +66,12 @@ class CompanyIDScreen extends StatelessWidget {
                   Row(
                     children: [
                       IconButton(
-                        icon: Icon(Icons.arrow_back_ios_new),
+                        icon: const Icon(Icons.arrow_back_ios_new),
                         onPressed: ()=>Navigator.pop(context),
                       ),
                       Text(
                         'Registration',
-                        style:TextStyle(
-                          fontSize: Sizes.x24,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                          color: kPrimarColor0
-                        ) ,
+                        style:Theme.of(context).textTheme.headlineLarge
                       )
                     ],
                   ),
@@ -91,33 +80,23 @@ class CompanyIDScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-
                       children: [
-                        TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Company ID',
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                              borderSide: BorderSide(color: kPrimarColor0,width: 1.0,),
+                        SizedBox(
+                          height: 50.0,
+                          child: TextFormField(
+                            style: Theme.of(context).textTheme.bodyMedium,
+                            decoration: const InputDecoration(
+                              hintText: 'Company ID',
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                              borderSide: BorderSide(color: kPrimarColor0,width: 2.0,),
-                            ),
-                          ),
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: Sizes.x14,
-                            fontWeight: FontWeight.w500,
-                            color: kPrimarColor0
                           ),
                         ),
-                        SizedBox(height: 20.0,),
+
+                        const SizedBox(height: 20.0,),
                         CustomButton(
                             text: 'Continue',
                             enabled: true,
                             onPressed: (){
-                              Navigator.push(context,MaterialPageRoute(builder: (context)=> PhoneNumberScreen()));
+                              Navigator.push(context,MaterialPageRoute(builder: (context)=> const PhoneNumberScreen()));
 
                             },
                         )
@@ -128,12 +107,7 @@ class CompanyIDScreen extends StatelessWidget {
                   Text(
                     'Terms of Use & Privacy Policy',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w400,
-                      fontSize: Sizes.x14,
-                      color: kPrimarColor0
-                    ),
+                    style: Theme.of(context).textTheme.bodyMedium,
                   )
 
                 ],
