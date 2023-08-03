@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 //import 'package:totr/core/theme/colors.dart';
 import 'package:totr/core/theme/sizes.dart';
 import 'package:totr/shared_widgets/custom_button.dart';
 import 'package:totr/login/presentation/screens/company_id_screen.dart';
 
-class GetStartedScreen extends StatelessWidget {
+import '../../../providers/providers.dart';
+
+class GetStartedScreen extends ConsumerWidget {
   const GetStartedScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
+    final isLightMode = ref.watch(themeProvider);
     return Scaffold(
       //backgroundColor: kNeutralColor100,
       body: Padding(
@@ -17,6 +21,12 @@ class GetStartedScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Center(
+              child: Switch(
+                value: isLightMode,
+                onChanged: (value)=> ref.read(themeProvider.notifier).state = value,
+              ),
+            ),
             Expanded(
               flex: 2,
               child: Row(

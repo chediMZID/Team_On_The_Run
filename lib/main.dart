@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:totr/login/presentation/screens/get_started_screen.dart';
+import 'package:totr/providers/providers.dart';
 
 import 'core/theme/dark_themes.dart';
 import 'core/theme/light_themes.dart';
 
 void main() async {
 
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
+    final isLightMode = ref.watch(themeProvider);
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: lightThemes(),
           darkTheme: darkThemes(),
-          themeMode:ThemeMode.light,
+          themeMode:isLightMode ? ThemeMode.light:ThemeMode.dark,
           home: child,
         );
       },
