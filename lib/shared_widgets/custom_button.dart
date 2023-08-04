@@ -20,6 +20,7 @@ class CustomButton extends StatelessWidget {
       child: TextButton(
           onPressed: enabled ? onPressed:null,
           style:ButtonStyle(
+            elevation: MaterialStateProperty.all<double>(5.0),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
             ),

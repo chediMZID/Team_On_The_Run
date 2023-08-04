@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:totr/contacts/presentation/screens/home_screen.dart';
 import 'package:totr/shared_widgets/custom_button.dart';
 import '../../../core/theme/colors.dart';
 import '../../../core/theme/sizes.dart';
@@ -89,6 +90,11 @@ class WelcomeScreen extends StatelessWidget {
                           text: 'Next',
                           enabled: true,
                           onPressed: (){
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(builder: (context)=>HomeScreen()),
+                                (route) => false,
+                            );
                           },
                         )
                       ],

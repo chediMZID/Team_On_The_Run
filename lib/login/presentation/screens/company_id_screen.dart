@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:totr/providers/login_provider.dart';
 import 'package:totr/shared_widgets/custom_button.dart';
-
 import '../../../core/theme/colors.dart';
 import '../../../core/theme/sizes.dart';
 import 'phone_number_screen.dart';
 
-
-class CompanyIDScreen extends StatelessWidget {
+class CompanyIDScreen extends ConsumerWidget {
   const CompanyIDScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -77,31 +77,52 @@ class CompanyIDScreen extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: Sizes.x15,vertical: 50.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        SizedBox(
-                          height: 50.0,
-                          child: TextFormField(
-                            style: Theme.of(context).textTheme.bodyMedium,
-                            decoration: const InputDecoration(
-                              hintText: 'Company ID',
+                    child: Consumer(
+                      builder: (context,ref,child){
+                        final loginNotifier = ref.watch(loginProvider);
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            SizedBox(
+                              height: 50.0,
+                              child: TextFormField(
+                                controller: loginNotifier.companyIdController,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                decoration: const InputDecoration(
+                                  hintText: 'Company ID',
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
 
-                        const SizedBox(height: 20.0,),
-                        CustomButton(
-                            text: 'Continue',
-                            enabled: true,
-                            onPressed: (){
-                              Navigator.push(context,MaterialPageRoute(builder: (context)=> const PhoneNumberScreen()));
+                            const SizedBox(height: 20.0,),
+                            CustomButton(
+                              text: 'Continue',
+                              enabled: false,
+                              onPressed: ()async{
+                                final companyId = loginNotifier.companyIdController.text;
+                                final authRepository = loginNotifier.authRepositoryProvider;
+                                final isVerified = await ref.watch(authRepository).verifyCompanyId(companyId) ;
+                                if(isVerified){
+                                  Navigator.push(context,MaterialPageRoute(builder: (context)=> const PhoneNumberScreen()));
+                                }
 
-                            },
-                        )
+                                /*final int companyId = int.parse(companyIdController.text);
+                                final authService = await context.read(authService.future);
+                                final isVerified = await authService.verifyCompanyId(companyId);
 
-                      ],
+                                if (isVerified) {
+                                // Company ID is verified, proceed to the next screen.
+                                // Navigator.push(...);
+                                } else {
+                                // Show error message or handle invalid company ID.
+                                }*/
+
+                              },
+                            )
+                          ],
+                        );
+                      },
                     ),
                   ),
                   Text(
@@ -109,10 +130,8 @@ class CompanyIDScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodyMedium,
                   )
-
                 ],
               ),
-
             ),
           )
         ],
