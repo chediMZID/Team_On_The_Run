@@ -6,11 +6,11 @@ import '../../../core/theme/colors.dart';
 import '../../../core/theme/sizes.dart';
 import 'phone_number_screen.dart';
 
-class CompanyIDScreen extends ConsumerWidget {
+class CompanyIDScreen extends StatelessWidget {
   const CompanyIDScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context,WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -80,31 +80,38 @@ class CompanyIDScreen extends ConsumerWidget {
                     child: Consumer(
                       builder: (context,ref,child){
                         final loginNotifier = ref.watch(loginProvider);
+                        final enabledProvider = ref.watch(loginNotifier.enabledProvider);
+                        print(enabledProvider);
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             SizedBox(
-                              height: 50.0,
+                              height: 80.0,
                               child: TextFormField(
+                                //onTap:() => ref.read(loginNotifier.enabledProvider.notifier).state=true ,
+                                onChanged:(value) => ref.read(loginNotifier.enabledProvider.notifier).state=true,
                                 controller: loginNotifier.companyIdController,
                                 style: Theme.of(context).textTheme.bodyMedium,
-                                decoration: const InputDecoration(
+                                decoration:  InputDecoration(
+                                  errorText: enabledProvider ? null:"Invalid ID number",
                                   hintText: 'Company ID',
                                 ),
                               ),
                             ),
 
-                            const SizedBox(height: 20.0,),
+                            //const SizedBox(height: 20.0,),
                             CustomButton(
                               text: 'Continue',
-                              enabled: false,
+                              enabled: enabledProvider,
                               onPressed: ()async{
                                 final companyId = loginNotifier.companyIdController.text;
                                 final authRepository = loginNotifier.authRepositoryProvider;
                                 final isVerified = await ref.watch(authRepository).verifyCompanyId(companyId) ;
                                 if(isVerified){
                                   Navigator.push(context,MaterialPageRoute(builder: (context)=> const PhoneNumberScreen()));
+                                }else{
+                                  ref.read(loginNotifier.enabledProvider.notifier).state=false;
                                 }
 
                                 /*final int companyId = int.parse(companyIdController.text);

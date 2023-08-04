@@ -25,6 +25,7 @@ ThemeData darkThemes() {
 
   return ThemeData.dark().copyWith(
       scaffoldBackgroundColor:kNeutralColor,
+      disabledColor: kDarkDisabledColor,
       scrollbarTheme: const ScrollbarThemeData().copyWith(
         thumbColor: MaterialStateProperty.all(Colors.grey[500]),
       ),

@@ -26,7 +26,7 @@ class CustomButton extends StatelessWidget {
             ),
             backgroundColor: enabled
                 ? MaterialStateProperty.all<Color>(kPrimaryColor)
-                : MaterialStateProperty.all<Color>(kPrimaryColorDisabled),
+                : MaterialStateProperty.all<Color>(Theme.of(context).disabledColor),
             foregroundColor:  MaterialStateProperty.all<Color>(Colors.white),
             //overlayColor:  MaterialStateProperty.all<Color>(Colors.white),
           ),

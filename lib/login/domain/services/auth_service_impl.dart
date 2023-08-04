@@ -8,7 +8,7 @@ class AuthServiceImpl implements AuthService {
 
   @override
   Future<bool> verifyCompanyId (String id) async{
-    return true;
+    return false;
     //return Future.delayed(const Duration(milliseconds:4000)).then((value) => true);
   }
   @override

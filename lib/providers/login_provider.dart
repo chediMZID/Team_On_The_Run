@@ -15,4 +15,18 @@ class LoginNotifier extends ChangeNotifier{
   final authRepositoryProvider = Provider<AuthRepo>((ref) => AuthRepoImpl(ref.read(authService)));
   final TextEditingController companyIdController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
+  final enabledProvider =StateProvider.autoDispose<bool>((ref) => true);
+
+
+  /*void wrongCompanyId () {
+    companyIdController.text = '';
+    enabledButton = false;
+    notifyListeners();
+  }
+
+  void reSet(){
+    enabledButton =true;
+    notifyListeners();
+
+  }*/
 }

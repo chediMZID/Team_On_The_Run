@@ -24,6 +24,7 @@ ThemeData lightThemes() {
 
   return ThemeData.light().copyWith(
       scaffoldBackgroundColor:kNeutralColor100,
+      disabledColor: kPrimaryColorDisabled,
 
       //backgroundColor: const Color(0xffF3F9FE),
       scrollbarTheme: const ScrollbarThemeData().copyWith(
@@ -65,6 +66,12 @@ ThemeData lightThemes() {
       ),
 
       inputDecorationTheme: InputDecorationTheme(
+        errorStyle: TextStyle(
+          color: kPrimaryColor,
+          fontWeight: FontWeight.w400,
+          fontFamily: 'Poppins',
+          fontSize: Sizes.x12,
+        ),
 
         contentPadding: EdgeInsets.symmetric(vertical: Sizes.x10,horizontal: Sizes.x24),
         /*suffixStyle: TextStyle(
