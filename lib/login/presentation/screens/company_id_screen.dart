@@ -11,6 +11,7 @@ class CompanyIDScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final companyIdController = TextEditingController();
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -79,9 +80,10 @@ class CompanyIDScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: Sizes.x15,vertical: 50.0),
                     child: Consumer(
                       builder: (context,ref,child){
-                        final loginNotifier = ref.watch(loginProvider);
-                        final enabledProvider = ref.watch(loginNotifier.enabledProvider);
-                        print(enabledProvider);
+                        //final loginNotifier = ref.watch(loginProvider);
+                        //final enabledProvider = ref.watch(loginNotifier.enabledProvider);
+                        final enabled = ref.watch(enabledProvider);
+                        print('enabledProvider : $enabled');
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -90,11 +92,15 @@ class CompanyIDScreen extends StatelessWidget {
                               height: 80.0,
                               child: TextFormField(
                                 //onTap:() => ref.read(loginNotifier.enabledProvider.notifier).state=true ,
-                                onChanged:(value) => ref.read(loginNotifier.enabledProvider.notifier).state=true,
-                                controller: loginNotifier.companyIdController,
+                                onChanged:(value) {
+                                  if(!enabled) {
+                                    ref.read(enabledProvider.notifier).state=true;
+                                  }
+                                } ,
+                                controller: companyIdController,
                                 style: Theme.of(context).textTheme.bodyMedium,
                                 decoration:  InputDecoration(
-                                  errorText: enabledProvider ? null:"Invalid ID number",
+                                  errorText: enabled ? null:"Invalid ID number",
                                   hintText: 'Company ID',
                                 ),
                               ),
@@ -103,15 +109,19 @@ class CompanyIDScreen extends StatelessWidget {
                             //const SizedBox(height: 20.0,),
                             CustomButton(
                               text: 'Continue',
-                              enabled: enabledProvider,
+                              enabled: enabled,
                               onPressed: ()async{
-                                final companyId = loginNotifier.companyIdController.text;
-                                final authRepository = loginNotifier.authRepositoryProvider;
+                                final companyId = companyIdController.text;
+                                final authRepository = authRepositoryProvider;
                                 final isVerified = await ref.watch(authRepository).verifyCompanyId(companyId) ;
                                 if(isVerified){
+                                  ref.read(loginProvider.notifier).updateCompanyId(companyId);
+                                  print(ref.watch(loginProvider));
+                                  //loginNotifier.companyIdController.text ="";
+
                                   Navigator.push(context,MaterialPageRoute(builder: (context)=> const PhoneNumberScreen()));
                                 }else{
-                                  ref.read(loginNotifier.enabledProvider.notifier).state=false;
+                                  ref.read(enabledProvider.notifier).state=false;
                                 }
 
                                 /*final int companyId = int.parse(companyIdController.text);

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:totr/login/presentation/screens/verification_screen.dart';
+import 'package:totr/providers/login_provider.dart';
 
 import '../../../core/theme/colors.dart';
 import '../../../core/theme/sizes.dart';
@@ -77,49 +79,67 @@ class PhoneNumberScreen extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: Sizes.x15,vertical: 50.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        IntlPhoneField(
-                          style:Theme.of(context).textTheme.bodyMedium,
-                          decoration: const InputDecoration(
-                            hintText: 'Phone number',
-                          ),
-                          /*InputDecoration(
-                            hintText: 'Phone number',
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                              borderSide: BorderSide(color: kPrimarColor0,width: 1.0,),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                              borderSide: BorderSide(color: kPrimarColor0,width: 2.0,),
-                            ),
-                            errorStyle: TextStyle(
-                              fontSize: Sizes.x12,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400,
-                            )
+                    child: Consumer(
+                      builder: (context,ref,child){
+                        final phoneNumberController = TextEditingController();
+                        //final loginNotifier = ref.watch(loginProvider);
+                        //final enabledProvider = ref.watch(loginNotifier.enabledProvider);
+                        final enabled = ref.watch(enabledProvider);
+                        //final loginNotifier = ref.watch(loginProvider);
 
-                          ),*/
-                        ),
-                        const SizedBox(height: 4.0,),
-                        CustomButton(
-                          text: 'Continue',
-                          enabled: true,
-                          onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const VerificationScreen()));
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            IntlPhoneField(
+                              style:Theme.of(context).textTheme.bodyMedium,
+                              decoration: const InputDecoration(
+                                errorText: 'Invalid phone Number',
+                                hintText: 'Phone number',
+                              ),
+                              invalidNumberMessage: null,
+                              controller: phoneNumberController,
+                              onChanged: (value){
+                                if(!enabled) {
+                                  ref.read(enabledProvider.notifier).state=true;
+                                }
+                              },
+                            ),
 
-                          },
-                        ),
-                        const SizedBox(height: 20.0,),
-                        Text(
-                            'We will verify your phone number by sending you a singleSMS message. Message and data rates may apply.',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.bodySmall
-                        ),
-                      ],
+                            const SizedBox(height: 4.0,),
+                            CustomButton(
+                              text: 'Continue',
+                              enabled: enabled,
+                              onPressed: ()async{
+                                print(ref.watch(loginProvider));
+                                final phoneNumber =phoneNumberController.text;
+                                ref.read(loginProvider.notifier).updatePhoneNumber(phoneNumber);
+                                final user = ref.watch(loginProvider);
+                                print(user);
+                                final isVerified = await ref.watch(authRepositoryProvider)
+                                    .verifyPhoneNumber(user);
+
+                                if(isVerified){
+                                  ref.watch(authRepositoryProvider)
+                                      .sendVerificationCode(user);
+
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context)=>const VerificationScreen()));
+                                } else {
+                                  ref.read(enabledProvider.notifier).state=false;
+                                }
+
+                              },
+                            ),
+                            const SizedBox(height: 20.0,),
+                            Text(
+                                'We will verify your phone number by sending you a singleSMS message. Message and data rates may apply.',
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.bodySmall
+                            ),
+                          ],
+                        );
+                      },
                     ),
                   ),
                   Expanded(
