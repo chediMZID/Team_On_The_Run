@@ -30,8 +30,8 @@ class CompanyIDScreen extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         TextSpan(
-                            text: 'link',
-                            style: Theme.of(context).textTheme.titleMedium,
+                          text: 'link',
+                          style: Theme.of(context).textTheme.titleMedium,
                         )
                       ],
                     )
@@ -70,8 +70,8 @@ class CompanyIDScreen extends StatelessWidget {
                         onPressed: ()=>Navigator.pop(context),
                       ),
                       Text(
-                        'Registration',
-                        style:Theme.of(context).textTheme.headlineLarge
+                          'Registration',
+                          style:Theme.of(context).textTheme.headlineLarge
                       )
                     ],
                   ),
@@ -81,7 +81,7 @@ class CompanyIDScreen extends StatelessWidget {
                       builder: (context,ref,child){
                         final loginNotifier = ref.watch(loginProvider);
                         final enabledProvider = ref.watch(loginNotifier.enabledProvider);
-                        print(enabledProvider);
+                        print('enabledProvider : $enabledProvider');
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -90,7 +90,11 @@ class CompanyIDScreen extends StatelessWidget {
                               height: 80.0,
                               child: TextFormField(
                                 //onTap:() => ref.read(loginNotifier.enabledProvider.notifier).state=true ,
-                                onChanged:(value) => ref.read(loginNotifier.enabledProvider.notifier).state=true,
+                                onChanged:(value) {
+                                  if(!enabledProvider) {
+                                    ref.read(loginNotifier.enabledProvider.notifier).state=true;
+                                  }
+                                } ,
                                 controller: loginNotifier.companyIdController,
                                 style: Theme.of(context).textTheme.bodyMedium,
                                 decoration:  InputDecoration(
@@ -109,6 +113,10 @@ class CompanyIDScreen extends StatelessWidget {
                                 final authRepository = loginNotifier.authRepositoryProvider;
                                 final isVerified = await ref.watch(authRepository).verifyCompanyId(companyId) ;
                                 if(isVerified){
+                                  ref.read(loginNotifier.userProvider.notifier).state=
+                                      ref.read(loginNotifier.userProvider.notifier).state.copyWith(companyId: companyId);
+                                  loginNotifier.companyIdController.text ="";
+
                                   Navigator.push(context,MaterialPageRoute(builder: (context)=> const PhoneNumberScreen()));
                                 }else{
                                   ref.read(loginNotifier.enabledProvider.notifier).state=false;
