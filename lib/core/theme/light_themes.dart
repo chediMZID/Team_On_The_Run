@@ -56,13 +56,27 @@ ThemeData lightThemes() {
         ),*/
         titleTextStyle: TextStyle(
             color: kPrimarColor0,
-            fontWeight: FontWeight.w400,
-            fontSize: Sizes.x12,
+            fontWeight: FontWeight.w500,
+            fontSize: Sizes.x14,
             fontFamily: 'Poppins'
         ),
       ),
-      popupMenuTheme: const PopupMenuThemeData(
-        textStyle: TextStyle(color: Colors.blueAccent),
+
+      popupMenuTheme: PopupMenuThemeData(
+        color: kNeutralColor100,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.0)
+        ),
+        textStyle: TextStyle(
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+            fontSize: Sizes.x14,
+            color: Colors.white
+        ),
+      ),
+      iconTheme: IconThemeData(
+        color: kPrimarColor0,
+        size: Sizes.x24,
       ),
 
       inputDecorationTheme: InputDecorationTheme(
