@@ -1,10 +1,8 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:totr/core/theme/colors.dart';
 
-enum ConnectionStatus { connected, disconnected, busy,out }
-
+enum ConnectionStatus { connected, disconnected, busy, out }
 
 class Header extends StatefulWidget implements PreferredSizeWidget {
   const Header({Key? key}) : super(key: key);
@@ -19,12 +17,13 @@ class Header extends StatefulWidget implements PreferredSizeWidget {
 
 class _HeaderState extends State<Header> {
   ConnectionStatus _currentStatus = ConnectionStatus.connected;
+  bool _isFocused = false;
 
   @override
   Widget build(BuildContext context) {
-    return  AppBar(
+    return AppBar(
       toolbarHeight: 120.0,
-      backgroundColor: Colors.black12,
+      //backgroundColor: Theme.of,
       title: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,7 +48,9 @@ class _HeaderState extends State<Header> {
                     backgroundImage: AssetImage('assets/images/ellipse.png'),
                   ),
                 ),
-                const SizedBox(width: 12.0,),
+                const SizedBox(
+                  width: 12.0,
+                ),
                 Flexible(
                   //width: 15.0,
                   //height: 500.0,
@@ -63,17 +64,22 @@ class _HeaderState extends State<Header> {
                       });
                     },
                     items: [
-                      dropdownMenuItem(ConnectionStatus.connected,'assets/icons/greenflag.png'),
-                      dropdownMenuItem(ConnectionStatus.disconnected,'assets/icons/greyflag.png'),
-                      dropdownMenuItem(ConnectionStatus.busy,'assets/icons/orangeflag.png'),
-                      dropdownMenuItem(ConnectionStatus.out,'assets/icons/blueflag.png'),
-
+                      dropdownMenuItem(ConnectionStatus.connected,
+                          'assets/icons/greenflag.png'),
+                      dropdownMenuItem(ConnectionStatus.disconnected,
+                          'assets/icons/greyflag.png'),
+                      dropdownMenuItem(
+                          ConnectionStatus.busy, 'assets/icons/orangeflag.png'),
+                      dropdownMenuItem(
+                          ConnectionStatus.out, 'assets/icons/blueflag.png'),
                     ],
                     icon: SizedBox(),
                     underline: SizedBox(),
                   ),
                 ),
-                const SizedBox(width: 12.0,),
+                const SizedBox(
+                  width: 12.0,
+                ),
                 PopupMenuButton<Item>(
                   padding: EdgeInsets.zero,
 
@@ -82,57 +88,93 @@ class _HeaderState extends State<Header> {
                     // Handle the selected menu item here
                   },
                   itemBuilder: (context) => [
-                    popupMenuItem(Item.newMessage,Icons.add_comment_outlined, 'New message'),
-                    popupMenuItem(Item.deleteMessage,Icons.delete_outlined, 'Delete message'),
+                    popupMenuItem(Item.newMessage, Icons.add_comment_outlined,
+                        'New message'),
+                    popupMenuItem(Item.deleteMessage, Icons.delete_outlined,
+                        'Delete message'),
                     // Add more menu items as needed
                   ],
-                  offset: Offset(0, 70), // Add space between the popup menu and the big container
+                  offset: Offset(0,
+                      70), // Add space between the popup menu and the big container
                 ),
               ],
             ),
           )
-
         ],
       ),
       bottom: PreferredSize(
-        preferredSize:Size.fromHeight(60.0) ,
-        child: TextField(
-          decoration: InputDecoration(
-            prefixIcon: Icon(Icons.search_outlined),
-            hintText: 'Search',
+        preferredSize: Size.fromHeight(60.0),
+        child: Container(
+          height: 50.0,
+          width: MediaQuery.of(context).size.width * 0.8,
+          child: Row(
+            children: [
+              Expanded(
+                child: Focus(
+                  onFocusChange: (hasFocus) {
+                    setState(() {
+                      _isFocused = hasFocus;
+                    });
+                  },
+                  child: Container(
+                    height: 36,
+                    decoration: BoxDecoration(
+                      color: _isFocused
+                          ? Theme.of(context).scaffoldBackgroundColor
+                          : Colors.transparent,
+                      border: Border.all(
+                        color: kNeutralColor0,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(55.0),
+                    ),
+                    child: TextField(
+                      style: Theme.of(context).textTheme.labelMedium,
+                      decoration: InputDecoration(
 
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                        prefixIcon: Icon(Icons.search_outlined),
+                        hintText: 'Search',
+                        suffixIcon: Icon(Icons.filter_alt_outlined)
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.favorite_border_outlined))
+            ],
           ),
-
-
         ),
-
-
       ),
-
-
     );
   }
-  DropdownMenuItem<ConnectionStatus> dropdownMenuItem(ConnectionStatus status, String path) {
+
+  DropdownMenuItem<ConnectionStatus> dropdownMenuItem(
+      ConnectionStatus status, String path) {
     return DropdownMenuItem<ConnectionStatus>(
       value: status,
-      child: Image.asset(path,),
+      child: Image.asset(
+        path,
+      ),
     );
   }
 
-  PopupMenuEntry<Item> popupMenuItem(Item value,IconData icon, String title) {
+  PopupMenuEntry<Item> popupMenuItem(Item value, IconData icon, String title) {
     return PopupMenuItem<Item>(
       value: value,
       child: ListTile(
-        contentPadding: EdgeInsets.zero,
-        leading: Icon(icon,color: Theme.of(context).primaryColor,) ,
-        title:Text(title)//,style: Theme.of(context).textTheme.bodyMedium,),
-      ),
+          contentPadding: EdgeInsets.zero,
+          leading: Icon(
+            icon,
+            color: Theme.of(context).primaryColor,
+          ),
+          title: Text(title) //,style: Theme.of(context).textTheme.bodyMedium,),
+          ),
     );
   }
- 
 }
 
-enum Item {
-  newMessage,
-  deleteMessage
-}
+enum Item { newMessage, deleteMessage }

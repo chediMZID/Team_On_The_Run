@@ -30,8 +30,9 @@ ThemeData lightThemes() {
       scrollbarTheme: const ScrollbarThemeData().copyWith(
         thumbColor: MaterialStateProperty.all(Colors.grey[500]),
       ),
-      appBarTheme: const AppBarTheme(
-        color: Colors.white,
+      appBarTheme: AppBarTheme(
+        backgroundColor: kNeutralColor50,
+        //color: Colors.white,
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: Colors.black,
@@ -94,7 +95,8 @@ ThemeData lightThemes() {
             fontSize: Sizes.x12,
             fontFamily: 'Poppins'
         ),*/
-          fillColor: Colors.blueAccent,
+        focusColor: Colors.white,
+          fillColor: Colors.white,
           hintStyle:  TextStyle(
               color: kPrimarColor0.withOpacity(0.5),
               fontWeight: FontWeight.w400,
@@ -156,6 +158,12 @@ ThemeData lightThemes() {
           fontSize: Sizes.x30,
           color: kPrimarColor0,
         ),
+        labelMedium: TextStyle(
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w600,
+          fontSize: Sizes.x14,
+          color: kPrimarColor0,
+        )
       )
   );
 }

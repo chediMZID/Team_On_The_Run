@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
+
 const kPrimaryColor = Color(0xFFCB1E25);
 const kDarkDisabledColor =Color(0xFF250507);
+const kNeutralColor0=Color(0x2B14243E);
 const kPrimaryColorDisabled = Color(0xFFFFCDD2);
+const kNeutralColor2 = Color(0xE5000000);
 const kNeutralColor = Color(0xFF000000);
 const kNeutralColor1 = Color(0xFF101010);
+const kNeutralColor50 =Color(0x2ED6D6D6);
 const kNeutralColor100 = Color(0xFFFFFFFF);
 const kNeutralColor800 = Color(0xFF959595);
 const kNeutralColor300 = Color(0xFFFCFCFC);

@@ -30,8 +30,9 @@ ThemeData darkThemes() {
         thumbColor: MaterialStateProperty.all(Colors.grey[500]),
       ),
 
-      appBarTheme: const AppBarTheme(
-        color:  Colors.white,
+      appBarTheme:  AppBarTheme(
+        backgroundColor: Colors.grey,
+        //color:  Colors.white,
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: Colors.black,
