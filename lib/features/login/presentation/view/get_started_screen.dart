@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 //import 'package:totr/core/theme/colors.dart';
 import 'package:totr/core/theme/sizes.dart';
 import 'package:totr/shared_widgets/custom_button.dart';
-import 'package:totr/login/presentation/screens/company_id_screen.dart';
-import '../../../providers/providers.dart';
+import '../../../../providers/providers.dart';
+import 'company_id_screen.dart';
 
 class GetStartedScreen extends ConsumerWidget {
   const GetStartedScreen({Key? key}) : super(key: key);

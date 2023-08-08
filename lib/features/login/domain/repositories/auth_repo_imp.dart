@@ -1,7 +1,7 @@
-import 'package:totr/login/domain/repositories/auth_repo.dart';
-import 'package:totr/login/domain/services/auth_service.dart';
 
 import '../entities/user.dart';
+import '../services/auth_service.dart';
+import 'auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo{
   final AuthService _authService;
@@ -19,6 +19,10 @@ class AuthRepoImpl implements AuthRepo{
   @override
   Future<bool> sendVerificationCode(User user) async{
     return (_authService.sendVerificationCode(user));
+  }
 
+  @override
+  Future<bool> verifyCode(String code) {
+    return (_authService.verifyCode(code));
   }
 }

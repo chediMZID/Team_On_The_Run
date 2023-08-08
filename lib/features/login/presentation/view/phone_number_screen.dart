@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:totr/login/presentation/screens/verification_screen.dart';
+import 'package:totr/features/login/presentation/view/verification_screen.dart';
 import 'package:totr/providers/login_provider.dart';
 
-import '../../../core/theme/colors.dart';
-import '../../../core/theme/sizes.dart';
-import '../../../shared_widgets/custom_button.dart';
+import '../../../../core/theme/colors.dart';
+import '../../../../core/theme/sizes.dart';
+import '../../../../shared_widgets/custom_button.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+
+import '../view_model/login_view_model.dart';
 
 class PhoneNumberScreen extends StatelessWidget {
   const PhoneNumberScreen({Key? key}) : super(key: key);
@@ -81,8 +83,8 @@ class PhoneNumberScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: Sizes.x15,vertical: 50.0),
                     child: Consumer(
                       builder: (context,ref,child){
-                        final loginNotifier = ref.watch(loginProvider);
-                        final enabledProvider = ref.watch(loginNotifier.enabledProvider);
+                        final LoginNotifier loginNotifier = ref.watch(loginProvider);
+                        final bool enabled = ref.watch(loginNotifier.enabledProvider);
                         //print('Id :${ref.watch(loginNotifier.userProvider.notifier).state.companyId}');
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -91,13 +93,13 @@ class PhoneNumberScreen extends StatelessWidget {
                             IntlPhoneField(
                               style:Theme.of(context).textTheme.bodyMedium,
                               decoration:  InputDecoration(
-                                errorText: enabledProvider ? null : 'Invalid phone Number',
+                                errorText: enabled ? null : 'Invalid phone Number',
                                 hintText: 'Phone number',
                               ),
                               invalidNumberMessage: null,
                               controller: loginNotifier.phoneNumberController,
                               onChanged: (value){
-                                if(!enabledProvider) {
+                                if(!enabled) {
                                   ref.read(loginNotifier.enabledProvider.notifier).state=true;
                                 }
                               },
@@ -106,7 +108,7 @@ class PhoneNumberScreen extends StatelessWidget {
                             const SizedBox(height: 4.0,),
                             CustomButton(
                               text: 'Continue',
-                              enabled: enabledProvider,
+                              enabled: enabled,
                               onPressed: ()async{
                                 final phoneNumber = loginNotifier.phoneNumberController.text;
                                 final authRepo = loginNotifier.authRepositoryProvider;

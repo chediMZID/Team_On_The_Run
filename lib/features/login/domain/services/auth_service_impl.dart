@@ -1,8 +1,6 @@
 
-
-import 'package:totr/login/domain/services/auth_service.dart';
-
 import '../entities/user.dart';
+import 'auth_service.dart';
 
 class AuthServiceImpl implements AuthService {
 
@@ -18,5 +16,10 @@ class AuthServiceImpl implements AuthService {
   @override
   Future<bool> sendVerificationCode(User user) async{
     return true;
+  }
+
+  @override
+  Future<bool> verifyCode(String code) async {
+    return code == "111111";
   }
 }
