@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:totr/shared_widgets/custom_button.dart';
+import 'package:go_router/go_router.dart';
+import 'package:totr/shared_widgets/custom_toggle_buttons.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/sizes.dart';
-import '../../../contacts/presentation/screens/home_screen.dart';
+import '../../../contacts/presentation/view/home_screen.dart';
 
 
 class WelcomeScreen extends StatelessWidget {
@@ -41,7 +42,7 @@ class WelcomeScreen extends StatelessWidget {
           Expanded(
             flex: 5,
             child: Container(
-              padding: const EdgeInsets.only(top: 20.0),
+              padding: const EdgeInsets.only(top: 20.0,),
               decoration: BoxDecoration(
                 color: Theme.of(context).scaffoldBackgroundColor,
                 borderRadius: const BorderRadius.only(
@@ -64,10 +65,11 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      IconButton(
+                      SizedBox(width: Sizes.x15,),
+                     /* IconButton(
                         icon: const Icon(Icons.arrow_back_ios_new),
                         onPressed: ()=>Navigator.pop(context),
-                      ),
+                      ),*/
                       Text(
                         'Welcome',
                         style:Theme.of(context).textTheme.headlineLarge,
@@ -90,11 +92,12 @@ class WelcomeScreen extends StatelessWidget {
                           text: 'Next',
                           enabled: true,
                           onPressed: (){
-                            Navigator.pushAndRemoveUntil(
+                            GoRouter.of(context).go('/home');
+                           /* Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(builder: (context)=>HomeScreen()),
                                 (route) => false,
-                            );
+                            );*/
                           },
                         )
                       ],

@@ -42,6 +42,7 @@ dependencies:
   go_router: ^10.0.0
   equatable: ^2.0.5
   hooks_riverpod: ^2.3.7
+  flutter_svg: ^2.0.7
 
 
 dev_dependencies:
@@ -70,6 +71,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/Json/
   fonts:
     - family: Poppins
       fonts:

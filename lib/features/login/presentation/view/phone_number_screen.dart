@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:totr/features/login/presentation/view/verification_screen.dart';
-import 'package:totr/providers/login_provider.dart';
 
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/sizes.dart';
-import '../../../../shared_widgets/custom_button.dart';
+import '../../../../shared_widgets/custom_toggle_buttons.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../view_model/login_view_model.dart';
@@ -16,6 +15,7 @@ class PhoneNumberScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +70,7 @@ class PhoneNumberScreen extends StatelessWidget {
                   Row(
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.arrow_back_ios_new),
+                        icon:  Icon(Icons.arrow_back_ios_new,color: Theme.of(context).primaryColor,),
                         onPressed: ()=>Navigator.pop(context),
                       ),
                       Text(

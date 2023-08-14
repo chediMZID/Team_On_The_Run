@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:totr/features/login/presentation/view/welcome_screen.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/sizes.dart';
-import '../../../../shared_widgets/custom_button.dart';
+import '../../../../shared_widgets/custom_toggle_buttons.dart';
 import '../view_model/login_view_model.dart';
 //import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
@@ -14,6 +14,7 @@ class VerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +70,7 @@ class VerificationScreen extends StatelessWidget {
                   Row(
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.arrow_back_ios_new),
+                        icon:  Icon(Icons.arrow_back_ios_new,color: Theme.of(context).primaryColor,),
                         onPressed: ()=>Navigator.pop(context),
                       ),
                       Text(
@@ -113,6 +114,7 @@ class VerificationScreen extends StatelessWidget {
                                     height: 100.0,
                                     width: 49.0,
                                     child: TextFormField(
+                                      focusNode: index == 0 ? loginNotifier.codeFocusNode:null,
 
                                       controller: index ==0? loginNotifier.codeController1
                                           : index ==1? loginNotifier.codeController2
@@ -153,6 +155,13 @@ class VerificationScreen extends StatelessWidget {
                                 if(isVerified){
                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>const WelcomeScreen()));
                                 } else {
+                                  loginNotifier.codeController1.text="";
+                                  loginNotifier.codeController2.text="";
+                                  loginNotifier.codeController3.text="";
+                                  loginNotifier.codeController4.text="";
+                                  loginNotifier.codeController5.text="";
+                                  loginNotifier.codeController6.text="";
+                                  FocusScope.of(context).requestFocus(loginNotifier.codeFocusNode);
                                   ref.read(loginNotifier.enabledProvider.notifier).state=false;
                                 }
 

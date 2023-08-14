@@ -26,3 +26,7 @@ class Sizes {
   static  double x8 = 8.sp;
   static  double x9 = 9.sp;
 }
+class Constants {
+  static double screenWidth = 0.0;
+  static double screenHeight = 0.0;
+}

@@ -25,6 +25,7 @@ class LoginNotifier extends ChangeNotifier{
   final TextEditingController codeController4 = TextEditingController();
   final TextEditingController codeController5 = TextEditingController();
   final TextEditingController codeController6 = TextEditingController();
+  final FocusNode codeFocusNode = FocusNode();
 
 
 

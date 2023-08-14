@@ -25,11 +25,15 @@ ThemeData lightThemes() {
   return ThemeData.light().copyWith(
       scaffoldBackgroundColor:kNeutralColor100,
       disabledColor: kPrimaryColorDisabled,
+      primaryColorDark: kPrimaryColor,
+      canvasColor: kNeutralColor50,
+      shadowColor: shadowColorlight,
 
       //backgroundColor: const Color(0xffF3F9FE),
       scrollbarTheme: const ScrollbarThemeData().copyWith(
         thumbColor: MaterialStateProperty.all(Colors.grey[500]),
       ),
+      focusColor: kNeutralColor0,
       appBarTheme: AppBarTheme(
         backgroundColor: kNeutralColor50,
         //color: Colors.white,
@@ -44,10 +48,20 @@ ThemeData lightThemes() {
       dataTableTheme: const DataTableThemeData(
         dataTextStyle: TextStyle(color: Colors.black),
       ),
-      dialogTheme: const DialogTheme(
-        contentTextStyle: TextStyle(color: Colors.yellowAccent),
-        titleTextStyle: TextStyle(color: Colors.blueAccent),
+      dialogTheme: DialogTheme(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+       // contentTextStyle:
+        titleTextStyle: TextStyle(
+          color: kPrimarColor0,
+          fontWeight: FontWeight.w700,
+          fontSize: Sizes.x16,
+          letterSpacing: 0.07,
+          fontFamily: 'Poppins'
       ),
+      ),
+      dividerColor: kNeutralColor0,
       listTileTheme:  ListTileThemeData(
         /*leadingAndTrailingTextStyle: TextStyle(
             color: kPrimarColor0,
@@ -76,9 +90,11 @@ ThemeData lightThemes() {
         ),
       ),
       iconTheme: IconThemeData(
-        color: kPrimarColor0,
+        color: kPrimaryColor,
         size: Sizes.x24,
       ),
+
+
 
       inputDecorationTheme: InputDecorationTheme(
         errorStyle: TextStyle(
@@ -120,6 +136,54 @@ ThemeData lightThemes() {
         textTheme: ButtonTextTheme.primary,
 
       ),*/
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          textStyle: TextStyle(
+            fontSize: Sizes.x16,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(55.0),
+            //side: BorderSide(width: 1.0,color: Colors.white)
+          ),
+        )
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          //backgroundColor: Colors.greenAccent,
+          padding: EdgeInsets.symmetric(horizontal: 25,),
+          //backgroundColor: Colors.yellow,
+          foregroundColor: kPrimarColor0,
+          textStyle: TextStyle(
+            fontSize: Sizes.x16,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+            color: kPrimarColor0,
+          ),
+        )
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedItemColor: kPrimaryColor,
+        unselectedItemColor: kNeutralColor0,
+        selectedLabelStyle: TextStyle(
+            fontSize: Sizes.x12,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w400,
+            //color: kPrimaryColor
+        ),
+        unselectedLabelStyle: TextStyle(
+            fontSize: Sizes.x12,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w400,
+            //color: kPrimarColor0
+        ),
+        elevation:20.0,
+        backgroundColor: Colors.white,
+        //type: BottomNavigationBarType.shifting
+      ),
+
+
 
       textTheme: TextTheme(
         titleLarge:  TextStyle(
@@ -162,6 +226,18 @@ ThemeData lightThemes() {
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w600,
           fontSize: Sizes.x14,
+          color: kPrimarColor0,
+        ),
+        headlineMedium: TextStyle(
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w600,
+          fontSize: Sizes.x12,
+          color: kPrimarColor0,
+        ),
+        headlineSmall: TextStyle(
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w300,
+          fontSize: Sizes.x11,
           color: kPrimarColor0,
         )
       )

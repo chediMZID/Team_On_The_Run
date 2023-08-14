@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:totr/providers/login_provider.dart';
-import 'package:totr/shared_widgets/custom_button.dart';
+import 'package:totr/shared_widgets/custom_toggle_buttons.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/sizes.dart';
 import '../view_model/login_view_model.dart';
@@ -13,6 +12,7 @@ class CompanyIDScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -67,7 +67,7 @@ class CompanyIDScreen extends StatelessWidget {
                   Row(
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.arrow_back_ios_new),
+                        icon: Icon(Icons.arrow_back_ios_new,color: Theme.of(context).primaryColor,),
                         onPressed: ()=>Navigator.pop(context),
                       ),
                       Text(

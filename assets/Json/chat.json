@@ -1,0 +1,143 @@
+{
+  "users": ["Utilisateur1", "Utilisateur2"],
+  "messages": [
+    {
+      "id" : 0,
+      "sender": "Utilisateur1",
+      "content": "Salut, comment ça va ?",
+      "date": "2023-07-16 09:15:00",
+      "isSeen": true,
+      "isSentSuccessfully": true
+    },
+    { "id" : 1,
+      "sender": "Utilisateur2",
+      "content": "Ça va bien, merci ! Et toi ?",
+      "date": "2023-07-16 09:16:30",
+      "isSeen": true,
+      "isSentSuccessfully": true
+    },
+    {
+      "id" : 2,
+      "sender": "Utilisateur1",
+      "content": "Je vais bien aussi. Qu'as-tu prévu pour aujourd'hui ?",
+      "date": "2023-07-16 09:17:45",
+      "isSeen": false,
+      "isSentSuccessfully": false
+    },
+    {
+      "id" : 3,
+      "sender": "Utilisateur2",
+      "content": "Rien de spécial, juste du travail. Et toi ?",
+      "date": "2023-07-16 09:18:20",
+      "isSeen": false,
+      "isSentSuccessfully": true
+    },
+    {
+      "id" : 4,
+      "sender": "Utilisateur1",
+      "content": "Je dois aller faire des courses. Ensuite, j'ai une réunion à 14h.",
+      "date": "2023-07-16 09:19:55",
+      "isSeen": false,
+      "isSentSuccessfully": true
+    },
+    {
+      "id" : 6,
+      "sender": "Utilisateur2",
+      "date": "2023-07-16 09:19:59",
+      "tail": "0 Mo",
+      "duration": 0,
+      "isSeen": false,
+      "isSentSuccessfully": true,
+      "npmberAppel": 1
+    },
+    {
+      "id" : 7,
+      "sender": "Utilisateur2",
+      "date": "2023-07-16 09:20:30",
+      "tail": "3 Mo",
+      "duration": 80,
+      "isImage": false,
+
+      "isSeen": false,
+      "isSentSuccessfully": true
+    },
+
+    {
+      "id" : 8,
+      "sender": "Utilisateur1",
+      "content": "Bonjour ! Qu'as-tu prévu pour aujourd'hui ?",
+      "date": "2023-07-17 08:30:00",
+      "isSeen": false,
+      "isSentSuccessfully": true
+    },
+    {
+      "id" : 9,
+      "sender": "Utilisateur1",
+      "date": "2023-07-17 08:30:30",
+      "tail": "0 Mo",
+      "duration": 0,
+      "isImage": false,
+
+      "isSeen": false,
+      "isSentSuccessfully": true,
+      "npmberAppel": 3
+    },
+
+    {
+      "id" : 10,
+      "sender": "Utilisateur2",
+      "content": "Bonjour ! J'ai une réunion ce matin, puis je vais au gym cet après-midi.",
+      "date": "2023-07-18 08:31:45",
+      "isSeen": true,
+      "isSentSuccessfully": true
+    },
+    {
+      "id" : 11,
+      "sender": "Utilisateur1",
+      "date": "2023-07-18 08:33:20",
+      "tail": "9 Mo",
+      "duration": 130,
+      "isImage": false,
+
+      "isSeen": false,
+      "isSentSuccessfully": false
+    },
+    {
+      "id" : 12,
+      "sender": "Utilisateur2",
+      "urlImage":"https://img.freepik.com/vecteurs-premium/bonjour-calligraphie-inscription_83277-3210.jpg?w=740" ,
+      "date": "2023-07-18 08:35:10",
+      "isImage": true,
+      "isSeen": false,
+      "isSentSuccessfully": true
+    },
+
+
+    {
+      "id" : 13,
+      "sender": "Utilisateur1",
+      "content": "Bonjour ! ",
+      "date": "2023-07-18 08:35:45",
+      "isSeen": false,
+      "isSentSuccessfully": true
+    },
+    {
+      "id" : 14,
+      "sender": "Utilisateur1",
+      "urlImage":"https://dalmiocuore.it/image/uploads/bonjour_4.jpg" ,
+      "date": "2023-07-19 08:00:10",
+      "isImage": true,
+      "isSeen": false,
+      "isSentSuccessfully": true
+    },
+    {
+      "id" : 13,
+      "sender": "Utilisateur2",
+      "content": "Bonjour ! ",
+      "date": "2023-07-19 08:02:45",
+      "isSeen": false,
+      "isSentSuccessfully": true
+    }
+
+  ]
+}

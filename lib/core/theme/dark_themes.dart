@@ -26,12 +26,19 @@ ThemeData darkThemes() {
   return ThemeData.dark().copyWith(
       scaffoldBackgroundColor:kNeutralColor,
       disabledColor: kDarkDisabledColor,
+      canvasColor: kNeutralColor2,
+      primaryColor: kNeutralColor100,
+      primaryColorDark:kPrimaryColor,
+      shadowColor: shadowColorDark,
+
+
       scrollbarTheme: const ScrollbarThemeData().copyWith(
         thumbColor: MaterialStateProperty.all(Colors.grey[500]),
       ),
+      focusColor: kNeutralColor3,
 
       appBarTheme:  AppBarTheme(
-        backgroundColor: Colors.grey,
+        backgroundColor: kNeutralColor2,
         //color:  Colors.white,
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle(
@@ -61,15 +68,24 @@ ThemeData darkThemes() {
         ),*/
         titleTextStyle: TextStyle(
             color: kNeutralColor100,
-            fontWeight: FontWeight.w400,
-            fontSize: Sizes.x12,
+            fontWeight: FontWeight.w500,
+            fontSize: Sizes.x14,
             fontFamily: 'Poppins'
         ),
       ),
 
-      popupMenuTheme:const PopupMenuThemeData(
-        textStyle: TextStyle(color: Colors.black),
-      ) ,
+      popupMenuTheme: PopupMenuThemeData(
+        color: kNeutralColor,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0)
+        ),
+        textStyle: TextStyle(
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+            fontSize: Sizes.x14,
+            color: Colors.white
+        ),
+      ),
       inputDecorationTheme:  InputDecorationTheme  (
           contentPadding: EdgeInsets.symmetric(vertical: Sizes.x10,horizontal: Sizes.x24),
           fillColor: Colors.transparent,
@@ -84,7 +100,39 @@ ThemeData darkThemes() {
           errorBorder: errorInputborder,
           focusColor: Color(0xFF5AC8FA)
       ),
-      primaryColor: kNeutralColor100,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            textStyle: TextStyle(
+              fontSize: Sizes.x16,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w500,
+            ),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(55.0),
+                //side: BorderSide(width: 1.0,color: kNeutralColor0)
+            ),
+          )
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedItemColor: kPrimaryColor,
+        unselectedItemColor: kNeutralColor100,
+        selectedLabelStyle: TextStyle(
+          fontSize: Sizes.x12,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w400,
+          //color: kPrimaryColor
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: Sizes.x12,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w400,
+          //color: kPrimarColor0
+        ),
+        elevation:20.0,
+        backgroundColor: kNeutralColor,
+        //type: BottomNavigationBarType.shifting
+      ),
+
       textTheme: TextTheme(
         titleLarge:  TextStyle(
             fontFamily: 'RedHatMono',
@@ -122,5 +170,17 @@ ThemeData darkThemes() {
             fontSize: Sizes.x30,
             color: kNeutralColor100,
         ),
+          headlineMedium: TextStyle(
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w600,
+            fontSize: Sizes.x12,
+            color: kNeutralColor100,
+          ),
+          headlineSmall: TextStyle(
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w300,
+            fontSize: Sizes.x11,
+            color: kNeutralColor100,
+          )
       ));
 }
