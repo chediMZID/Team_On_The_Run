@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:totr/shared_widgets/custom_toggle_buttons.dart';
+import 'package:totr/shared_widgets/custom_buttons.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/sizes.dart';
 import '../view_model/login_view_model.dart';

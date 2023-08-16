@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:totr/features/channels/presentation/view/channels_screen.dart';
 import 'package:totr/features/chats/presentation/view/chats_screen.dart';
 import 'package:totr/features/more/presentation/view/more_screen.dart';
-import 'package:totr/shared_widgets/dashboard.dart';
+import 'package:totr/shared_widgets/home.dart';
 
 import '../features/contacts/presentation/view/home_screen.dart';
 import '../features/login/presentation/view/get_started_screen.dart';
@@ -28,7 +28,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       ShellRoute(
         navigatorKey: shellNavigator,
-        builder: (context,state,child) => Dashboard(key: state.pageKey, child: child,),
+        builder: (context,state,child) => Home(key: state.pageKey, child: child,),
         routes: [
           GoRoute(
             name: 'home',

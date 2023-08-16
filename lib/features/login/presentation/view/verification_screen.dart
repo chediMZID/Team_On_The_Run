@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:totr/features/login/presentation/view/welcome_screen.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/sizes.dart';
-import '../../../../shared_widgets/custom_toggle_buttons.dart';
+import '../../../../shared_widgets/custom_buttons.dart';
 import '../view_model/login_view_model.dart';
 //import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 

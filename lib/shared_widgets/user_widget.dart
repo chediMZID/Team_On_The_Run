@@ -21,7 +21,7 @@ class UserWidget extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     if (axis) {
       return Container(
-      height: 200.0,
+      height: 300.0,
       width: screenWidth * 0.25,
       child: GestureDetector(
         onLongPress: (){
@@ -66,7 +66,7 @@ class UserWidget extends StatelessWidget {
     } else {
       return GestureDetector(
         onTap: (){
-          showBottom(context);
+          showBottom(context,name,imageUrl,);
         },
 
           onLongPress: (){
@@ -77,8 +77,8 @@ class UserWidget extends StatelessWidget {
               width: 54.0,
               height: 54.0,
               child: CircleAvatar(
-                radius: status == ConnectionStatus.connected ? 27:25,
-                backgroundColor: status == ConnectionStatus.connected ? Colors.green:Colors.transparent,
+                radius:25,
+                backgroundColor:Colors.transparent,
                 child: SizedBox(
                   width: 50.0,
                   height: 50.0,

@@ -4,7 +4,7 @@ import 'package:totr/features/login/presentation/view/verification_screen.dart';
 
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/sizes.dart';
-import '../../../../shared_widgets/custom_toggle_buttons.dart';
+import '../../../../shared_widgets/custom_buttons.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../view_model/login_view_model.dart';

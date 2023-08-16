@@ -181,6 +181,6 @@ ThemeData darkThemes() {
             fontWeight: FontWeight.w300,
             fontSize: Sizes.x11,
             color: kNeutralColor100,
-          )
+          ),
       ));
 }

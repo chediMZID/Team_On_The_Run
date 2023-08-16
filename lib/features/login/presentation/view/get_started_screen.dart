@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 //import 'package:totr/core/theme/colors.dart';
 import 'package:totr/core/theme/sizes.dart';
-import 'package:totr/shared_widgets/custom_toggle_buttons.dart';
+import 'package:totr/shared_widgets/custom_buttons.dart';
 import '../../../../main.dart';
 import 'company_id_screen.dart';
 

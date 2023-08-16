@@ -44,8 +44,8 @@ class Search extends ConsumerWidget {
               prefixIcon: Icon(Icons.search_outlined),
               hintText: 'Search',
               suffixIcon: Container(
-                width: 50.0,
-                height: 50.0,
+                padding: EdgeInsets.all(5.0),
+
                 child: SvgPicture.asset(
                   'assets/icons/setting-4.svg', // Replace with the path to your SVG file
                   color: Theme.of(context).primaryColorDark,   // Set the color of the SVG

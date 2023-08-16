@@ -31,7 +31,7 @@ class MyApp extends ConsumerWidget {
           routeInformationParser: router.routeInformationParser,
           routeInformationProvider: router.routeInformationProvider,
           routerDelegate: router.routerDelegate,
-          themeMode:!isLightMode ? ThemeMode.light:ThemeMode.dark,
+          themeMode:isLightMode ? ThemeMode.light:ThemeMode.dark,
           //home: child,
         );
       },

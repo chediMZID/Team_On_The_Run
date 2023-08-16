@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:totr/core/theme/colors.dart';
 import 'package:totr/features/contacts/presentation/view_model/home_view_model.dart';
 import 'package:totr/shared_widgets/actions_component.dart';
+import 'package:totr/shared_widgets/confirmation_dialog.dart';
 import 'package:totr/shared_widgets/search_field.dart';
 
 
@@ -17,6 +19,7 @@ class Header extends ConsumerWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context,WidgetRef ref) {
     //final ConnectionStatus currentFlag = ref.watch(homeNotifier.flagProvider);
+    final HomeNotifier homeNotifier = ref.watch(homeProvider);
     return AppBar(
       toolbarHeight: 120.0,
       //backgroundColor: Theme.of,
@@ -44,8 +47,30 @@ class Header extends ConsumerWidget implements PreferredSizeWidget {
                     child:Search(),
                   ),
                   IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.favorite_border_outlined))
+
+                      onPressed: () {
+                        if(ref.watch(homeNotifier.favoriteActiveProvider)){
+                          showConfirmationDialog(context,'Select and add to favorites');
+                        }
+                        ref.read(homeNotifier.favoriteActiveProvider.notifier).state=
+                            !ref.read(homeNotifier.favoriteActiveProvider.notifier).state;
+
+                      },
+                      icon: CircleAvatar(
+
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: ref.watch(homeNotifier.favoriteActiveProvider) ?
+                          SvgPicture.asset(
+                            'assets/icons/favorite.svg',
+                            color: Theme.of(context).scaffoldBackgroundColor
+                          ):SvgPicture.asset(
+                              'assets/icons/favorite_outlined.svg',
+                              color: Theme.of(context).scaffoldBackgroundColor
+                          )
+                        ),
+                      ),
+                  )
                 ],
               ),
             ),

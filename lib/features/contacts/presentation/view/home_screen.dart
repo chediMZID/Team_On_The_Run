@@ -32,12 +32,12 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               Toggle(),
-              Expanded(flex:2,child: CustomListView(isHorizantal: true,)),
+              Expanded(flex:3,child: CustomListView(isHorizantal: true,)),
               Container(
                 height: 12.0,
                 color: Theme.of(context).canvasColor,
               ),
-              Expanded(flex:7,child: CustomListView(isHorizantal: false,)),
+              Expanded(flex:8,child: CustomListView(isHorizantal: false,)),
               //UserWidget(imageUrl: 'assets/images/ellipse.png', name: 'Martin', status:ConnectionStatus.connected, workState: 'On Duty',),
             ],
           ),

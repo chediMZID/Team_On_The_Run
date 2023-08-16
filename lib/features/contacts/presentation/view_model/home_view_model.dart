@@ -31,4 +31,7 @@ class HomeNotifier extends ChangeNotifier {
     return jsonData['users'];
   });
   final searchQueryProvider = StateProvider<String>((ref) => '');
+
+  final favoriteActiveProvider = StateProvider<bool>((ref) => false);
+  final isCheckedList = StateProvider<List<String>>((ref) => []);
 }

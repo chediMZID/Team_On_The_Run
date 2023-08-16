@@ -28,12 +28,13 @@ ThemeData lightThemes() {
       primaryColorDark: kPrimaryColor,
       canvasColor: kNeutralColor50,
       shadowColor: shadowColorlight,
+      focusColor: kNeutralColor0,
+
 
       //backgroundColor: const Color(0xffF3F9FE),
       scrollbarTheme: const ScrollbarThemeData().copyWith(
         thumbColor: MaterialStateProperty.all(Colors.grey[500]),
       ),
-      focusColor: kNeutralColor0,
       appBarTheme: AppBarTheme(
         backgroundColor: kNeutralColor50,
         //color: Colors.white,
@@ -239,7 +240,13 @@ ThemeData lightThemes() {
           fontWeight: FontWeight.w300,
           fontSize: Sizes.x11,
           color: kPrimarColor0,
-        )
+        ),
+        titleSmall: TextStyle(
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+          fontSize: Sizes.x14,
+          color: kPrimarColor0,
+        ),
       )
   );
 }

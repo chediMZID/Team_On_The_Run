@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:totr/shared_widgets/custom_toggle_buttons.dart';
+import 'package:totr/shared_widgets/custom_buttons.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/sizes.dart';
 import '../../../contacts/presentation/view/home_screen.dart';
