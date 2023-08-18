@@ -73,6 +73,7 @@ class UserWidget extends StatelessWidget {
             showOptionsDialog(context);
           },
           child: ListTile(
+            contentPadding: EdgeInsets.zero,
             leading:SizedBox(
               width: 54.0,
               height: 54.0,
@@ -86,13 +87,13 @@ class UserWidget extends StatelessWidget {
                     child: Stack(
                       children: [
                         ClipOval(child: Image.asset(imageUrl)),
-                        Align(
+                      /*  Align(
                           alignment: Alignment.topRight,
                           child: CircleAvatar(
                             radius: 6,
                             backgroundColor: statusColorMap[status],
                           ),
-                        ),
+                        ),*/
                       ],
                     ),
                   ),

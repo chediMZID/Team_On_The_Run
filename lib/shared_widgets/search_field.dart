@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:totr/shared_widgets/filter.dart';
 
 import '../core/theme/colors.dart';
 import '../features/contacts/presentation/view_model/home_view_model.dart';
 
 class Search extends ConsumerWidget {
-  const Search({Key? key}) : super(key: key);
+
+
+  final bool filter;
+  final ValueChanged<String>? onChanged;
+  const Search({required this.onChanged,required this.filter, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context,WidgetRef ref) {
@@ -29,7 +34,7 @@ class Search extends ConsumerWidget {
           borderRadius: BorderRadius.circular(55.0),
         ),
         child: TextField(
-          onChanged: (query) => ref.read(homeNotifier.searchQueryProvider.notifier).state=query,
+          onChanged:onChanged,
           textAlignVertical: TextAlignVertical.center,
           style: Theme.of(context).textTheme.labelMedium,
           decoration:  InputDecoration(
@@ -41,18 +46,25 @@ class Search extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(55.0),
                 borderSide:  BorderSide(color: Theme.of(context).focusColor,width:1.0),
               ),
-              prefixIcon: Icon(Icons.search_outlined),
-              hintText: 'Search',
-              suffixIcon: Container(
-                padding: EdgeInsets.all(5.0),
-
-                child: SvgPicture.asset(
-                  'assets/icons/setting-4.svg', // Replace with the path to your SVG file
-                  color: Theme.of(context).primaryColorDark,   // Set the color of the SVG
-                  //width: 1,            // Set the desired width
-                  //height: 1,           // Set the desired height
-                ),
+              prefixIcon: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.asset('assets/icons/search.svg'),
               ),
+              hintText: 'Search',
+              suffixIcon: filter ? IconButton(
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                padding: EdgeInsets.all(5.0),
+                onPressed: (){
+                  showFilter(context);
+                },
+                icon: SvgPicture.asset(
+                  'assets/icons/setting-4.svg',
+                  color: Theme.of(context).primaryColorDark,
+                  //width: 1,
+                  //height: 1,
+                ),
+              ):const SizedBox(),
           ),
         ),
       ),

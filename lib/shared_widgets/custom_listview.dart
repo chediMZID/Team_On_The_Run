@@ -6,6 +6,7 @@ import 'package:totr/features/contacts/presentation/view_model/home_view_model.d
 import 'package:totr/features/login/presentation/view_model/login_view_model.dart';
 import 'package:totr/shared_widgets/radio_checkbox.dart';
 import 'package:totr/shared_widgets/user_widget.dart';
+import 'package:totr/shared_widgets/userx.dart';
 
 
 class CustomListView extends ConsumerWidget {
@@ -27,46 +28,43 @@ class CustomListView extends ConsumerWidget {
             scrollDirection: isHorizantal ? Axis.horizontal:Axis.vertical,
             itemCount: users.length,
             itemBuilder: (context, index) {
-              var user = users[index];
+              UserX user = UserX.fromJson(users[index]);
               if(isHorizantal){
                 return UserWidget(
-                  name: user['NomPrenon'],
-                  imageUrl: user['urlimage'],
-                  status: user['etatConneter'] == 0 ? ConnectionStatus.disconnected
-                      : user['etatConneter'] == 1 ? ConnectionStatus.connected
-                      : user['etatConneter'] == 2 ? ConnectionStatus.busy
-                      : ConnectionStatus.out,
+                  name: user.name,
+                  imageUrl: user.urlImage,
+                  status: user.status,
                   workState: "On Duty",
                   axis: isHorizantal,
                 );
               }else{
-                if( user['NomPrenon'].toLowerCase().contains(query)){
+                if( user.name.toLowerCase().contains(query)){
                   var checklist = ref.watch(homeNotifier.isCheckedList);
                   return Row(
                     children: [
                       ref.watch(homeNotifier.favoriteActiveProvider) ?
-                      RadioCheckbox(
-                        value: ref.watch(homeNotifier.isCheckedList).contains(user['id']) ,
-                        onChanged: (value){
-                          //print(checklist);
-                          if (value == false) {
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20.0),
+                        child: RadioCheckbox(
+                          value: ref.watch(homeNotifier.isCheckedList).contains(user.id) ,
+                          onChanged: (value){
+                            //print(checklist);
+                            if (value == false) {
 
-                            ref.read(homeNotifier.isCheckedList.notifier).state = ref.read(homeNotifier.isCheckedList.notifier).state.where((i) => i != user['id']).toList();
-                            print('no');
-                          } else {
-                            ref.read(homeNotifier.isCheckedList.notifier).state = [...ref.read(homeNotifier.isCheckedList.notifier).state, user['id']];
-                            print(checklist);
-                          }
-                        },
+                              ref.read(homeNotifier.isCheckedList.notifier).state = ref.read(homeNotifier.isCheckedList.notifier).state.where((i) => i != user.id).toList();
+                              print('no');
+                            } else {
+                              ref.read(homeNotifier.isCheckedList.notifier).state = [...ref.read(homeNotifier.isCheckedList.notifier).state, user.id];
+                              print(checklist);
+                            }
+                          },
+                        ),
                       ):const SizedBox(),
                       Expanded(
                         child: UserWidget(
-                          name: user['NomPrenon'],
-                          imageUrl: user['urlimage'],
-                          status: user['etatConneter'] == 0 ? ConnectionStatus.disconnected
-                              : user['etatConneter'] == 1 ? ConnectionStatus.connected
-                              : user['etatConneter'] == 2 ? ConnectionStatus.busy
-                              : ConnectionStatus.out,
+                          name: user.name,
+                          imageUrl: user.urlImage,
+                          status: user.status,
                           workState: "On Duty",
                           axis: isHorizantal,
                         ),

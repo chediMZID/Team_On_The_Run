@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:totr/features/contacts/presentation/view_model/home_view_model.dart';
 import 'package:totr/shared_widgets/custom_navigation_bar.dart';
-import 'package:totr/shared_widgets/header.dart';
+import 'package:totr/features/contacts/presentation/view/home_header.dart';
 import 'package:totr/shared_widgets/toggle_buttons.dart';
 import 'package:totr/shared_widgets/user_widget.dart';
 

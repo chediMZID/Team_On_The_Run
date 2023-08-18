@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:totr/providers/router_provider.dart';
 
@@ -49,24 +50,28 @@ class CustomNavigationBar extends ConsumerWidget {
         items: [
           BottomNavigationBarItem(
             backgroundColor:Theme.of(context).scaffoldBackgroundColor,
-              icon: Icon(Icons.people_alt_outlined),
+            icon: SvgPicture.asset('assets/icons/contact.svg'),
+            activeIcon: SvgPicture.asset('assets/icons/contact.svg',color: Theme.of(context).primaryColorDark,),
             label: 'Contacts',
           ),
           BottomNavigationBarItem(
             backgroundColor:Theme.of(context).scaffoldBackgroundColor,
-              icon: Icon(Icons.chat_bubble_outline),
+            icon: SvgPicture.asset('assets/icons/chat.svg'),
+            activeIcon: SvgPicture.asset('assets/icons/chat.svg',color: Theme.of(context).primaryColorDark,),
             label: 'Chats',
 
           ),
           BottomNavigationBarItem(
             backgroundColor:Theme.of(context).scaffoldBackgroundColor,
-            icon: Icon(Icons.mic_none_outlined),
+            icon: SvgPicture.asset('assets/icons/channels.svg'),
+            activeIcon: SvgPicture.asset('assets/icons/channels.svg',color: Theme.of(context).primaryColorDark,),
             label: 'Channels',
 
           ) ,
           BottomNavigationBarItem(
             backgroundColor:Theme.of(context).scaffoldBackgroundColor,
-            icon: Icon(Icons.more_horiz),
+            icon: SvgPicture.asset('assets/icons/more.svg'),
+            activeIcon: SvgPicture.asset('assets/icons/more.svg',color: Theme.of(context).primaryColorDark,),
             label: 'More',
 
           ),

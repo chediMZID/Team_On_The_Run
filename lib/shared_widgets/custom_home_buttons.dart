@@ -11,13 +11,15 @@ class CustomHomeButton extends StatelessWidget {
   final Border? border;
   final double borderRaidus;
   final bool primary;
+  final EdgeInsetsGeometry? padding;
 
   CustomHomeButton({
     required this.text,
     required this.onPressed,
     this.border,
     this.borderRaidus = 8.0,
-    required this.primary
+    required this.primary,
+    this.padding
   });
 
   @override
@@ -25,7 +27,7 @@ class CustomHomeButton extends StatelessWidget {
     return GestureDetector(
         onTap: onPressed,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0,),
+          padding: padding ?? EdgeInsets.zero,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(borderRaidus),
             border: border,

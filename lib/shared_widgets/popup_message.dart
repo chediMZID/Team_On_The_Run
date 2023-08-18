@@ -5,14 +5,15 @@ enum Item { newMessage, deleteMessage }
 
 
 class PopupMessage extends ConsumerWidget {
-  const PopupMessage({Key? key}) : super(key: key);
+  final Widget? icon;
+  const PopupMessage({this.icon, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context,WidgetRef ref) {
     return PopupMenuButton<Item>(
       padding: EdgeInsets.zero,
 
-      icon:  Icon(Icons.more_vert,color: Theme.of(context).primaryColor,),
+      icon:  icon ?? const SizedBox(),
       onSelected: (item) {
       },
       itemBuilder: (context) => [

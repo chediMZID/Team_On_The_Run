@@ -4,45 +4,52 @@
       "id": "0001",
       "NomPrenon": "John Doe",
       "LastMessage": "Bonjour !",
-      "datehourLastmessage": "2023-07-12 15:30",
+      "datehourLastmessage": "2023-08-18 15:30",
       "etatConneter": 1,
       "messagenonvu": 3,
       "urlimage": "assets/images/User.png",
       "Priority":1,
-      "Num_Tel": 69587423
+      "Num_Tel": 69587423,
+      "seen": false
     },
     {
       "id": "0002",
       "NomPrenon": "Jane Smith",
       "LastMessage": "Comment ça va ?",
-      "datehourLastmessage": "2023-07-12 18:45",
+      "datehourLastmessage": "2023-08-18 18:45",
       "etatConneter": 2,
       "messagenonvu": 0,
       "urlimage": "assets/images/User1.png",
       "Priority":2,
-      "Num_Tel": 30985742
+      "Num_Tel": 30985742,
+      "seen": true
+
     },
     {
       "id": "0003",
       "NomPrenon": "Alex Johnson",
       "LastMessage": "J'ai une question pour toi.",
-      "datehourLastmessage": "2023-07-11 09:15",
+      "datehourLastmessage": "2023-08-18 09:15",
       "etatConneter": 1,
       "messagenonvu": 1,
       "urlimage": "assets/images/User2.png",
       "Priority":1,
-      "Num_Tel": 87453621
+      "Num_Tel": 87453621,
+      "seen": false
+
     },
     {
       "id": "0004",
       "NomPrenon": "Emily Davis",
       "LastMessage": "Je suis impatiente de te revoir !",
-      "datehourLastmessage": "2023-07-10 20:30",
+      "datehourLastmessage": "2023-08-18 20:30",
       "etatConneter": 0,
       "messagenonvu": 5,
       "urlimage": "assets/images/User3.png",
       "Priority":3,
-      "Num_Tel": 59213847
+      "Num_Tel": 59213847,
+      "seen": false
+
     },
     {
       "id": "0005",
@@ -53,7 +60,9 @@
       "messagenonvu": 0,
       "urlimage": "assets/images/User4.png",
       "Priority":2,
-      "Num_Tel": 43782915
+      "Num_Tel": 43782915,
+      "seen": true
+
     },
     {
       "id": "0006",
@@ -64,6 +73,8 @@
       "messagenonvu": 2,
       "urlimage": "assets/images/User5.png",
       "Priority":3,
+      "seen": true,
+
       "Num_Tel": 21875396
     },
     {
@@ -73,6 +84,8 @@
       "datehourLastmessage": "2023-07-11 17:10",
       "etatConneter": 2,
       "messagenonvu": 1,
+      "seen": true,
+
       "urlimage": "assets/images/User.png",
       "Num_Tel": 15263879
     },
@@ -86,6 +99,8 @@
       "messagenonvu": 0,
       "urlimage": "assets/images/User6.png",
       "Priority":2,
+      "seen": false,
+
       "Num_Tel": 98754123
     },
     {
@@ -96,6 +111,8 @@
       "datehourLastmessage": "2023-07-09 21:15",
       "etatConneter": 1,
       "messagenonvu": 0,
+      "seen": true,
+
       "urlimage": "assets/images/User7.png",
       "Priority":3,
       "Num_Tel": 62431589
@@ -110,6 +127,8 @@
       "messagenonvu": 3,
       "urlimage": "assets/images/User.png",
       "Priority":4,
+      "seen": true,
+
       "Num_Tel": 73049182
     },
     {
@@ -120,6 +139,8 @@
       "datehourLastmessage": "2023-07-11 08:20",
       "etatConneter": 0,
       "messagenonvu": 2,
+      "seen": false,
+
       "urlimage": "assets/images/User.png",
       "Num_Tel": 15263879
     },
@@ -131,6 +152,8 @@
       "datehourLastmessage": "2023-07-10 17:30",
       "etatConneter": 1,
       "messagenonvu": 1,
+      "seen": false,
+
       "urlimage": "assets/images/User.png",
       "Priority":4,
       "Num_Tel": 87459136
@@ -143,6 +166,8 @@
       "datehourLastmessage": "2023-07-11 12:50",
       "etatConneter": 2,
       "messagenonvu": 0,
+      "seen": true,
+
       "urlimage": "assets/images/User.png",
       "Priority":4,
       "Num_Tel": 30986521
@@ -155,6 +180,8 @@
       "datehourLastmessage": "2023-07-10 09:25",
       "etatConneter": 1,
       "messagenonvu": 0,
+      "seen": true,
+
       "urlimage": "assets/images/User.png",
       "Num_Tel": 69518742
 
@@ -164,8 +191,10 @@
 
       "NomPrenon": "William Lee",
       "LastMessage": "On se voit demain !",
-      "datehourLastmessage": "2023-07-11 16:35",
+      "datehourLastmessage": "2023-08-18 16:35",
       "etatConneter": 0,
+      "seen": true,
+
       "messagenonvu": 1,
       "urlimage": "assets/images/User.png",
       "Priority":3,

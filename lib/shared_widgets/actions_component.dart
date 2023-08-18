@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:totr/shared_widgets/popup_message.dart';
 
 import 'drop_down_flag.dart';
@@ -36,7 +37,10 @@ class ActionsComponent extends StatelessWidget {
           const SizedBox(
             width: 12.0,
           ),
-          PopupMessage(),
+          PopupMessage(icon:SvgPicture.asset(
+              'assets/icons/more_vert.svg',
+              color: Theme.of(context).primaryColor),
+          ),
 
         ],
       ),

@@ -24,6 +24,7 @@ void showConfirmationDialog(BuildContext context,String string){
           content: Text(string,style: Theme.of(context).textTheme.bodySmall,),
           actions: [
             CustomHomeButton(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
                 onPressed: (){
                   Navigator.of(context).pop();
                 },
@@ -31,6 +32,7 @@ void showConfirmationDialog(BuildContext context,String string){
               primary: false,
             ),
             CustomHomeButton(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
               text: 'Proceed',
                 primary: true,
                 onPressed: (){

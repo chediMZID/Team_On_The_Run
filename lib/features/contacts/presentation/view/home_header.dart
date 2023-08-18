@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:totr/core/theme/colors.dart';
+//import 'package:totr/core/theme/colors.dart';
 import 'package:totr/features/contacts/presentation/view_model/home_view_model.dart';
 import 'package:totr/shared_widgets/actions_component.dart';
 import 'package:totr/shared_widgets/confirmation_dialog.dart';
@@ -44,7 +44,7 @@ class Header extends ConsumerWidget implements PreferredSizeWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child:Search(),
+                    child:Search(filter:true,onChanged: (query) => ref.read(homeNotifier.searchQueryProvider.notifier).state=query,),
                   ),
                   IconButton(
 

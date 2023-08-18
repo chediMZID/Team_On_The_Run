@@ -34,4 +34,7 @@ class HomeNotifier extends ChangeNotifier {
 
   final favoriteActiveProvider = StateProvider<bool>((ref) => false);
   final isCheckedList = StateProvider<List<String>>((ref) => []);
+  final group_ind = StateProvider<bool>((ref) => true);
+  final on_off_duty = StateProvider<bool>((ref) => true);
+  final on_off_line = StateProvider<bool>((ref) => true);
 }
