@@ -13,7 +13,7 @@ class UserWidget extends StatelessWidget {
   final ConnectionStatus status ;
   final bool axis ;
 
-  UserWidget({required this.imageUrl,required this.name,required this.status, required this.workState, required this.axis});
+  UserWidget({required this.imageUrl,required this.name,required this.status, this.workState='', required this.axis});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class UserWidget extends StatelessWidget {
             ),
             const SizedBox(height: 8.0,),
             Text(name,style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,),
-            Text(workState,style: Theme.of(context).textTheme.headlineSmall,)
+            Text(workState ,style: Theme.of(context).textTheme.headlineSmall,)
           ],
         ),
       ),

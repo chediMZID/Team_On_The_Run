@@ -8,23 +8,25 @@ class UserX {
   final String lastMessage;
   final String dateHourLastMessage;
   final ConnectionStatus status;
-  final int messageNonVu;
+  final int? messageNonVu;
   final String urlImage;
   final int? priority;
-  final int number;
+  final int? number;
   final bool seen;
+  final String workState;
 
   UserX({
-    required this.id,
-    required this.name,
-    required this.lastMessage,
-    required this.dateHourLastMessage,
-    required this.status,
-    required this.messageNonVu,
-    required this.urlImage,
-    required this.priority,
-    required this.number,
-    required this.seen,
+    this.id ='0',
+    this.name = 'no name',
+    this.lastMessage = '',
+    this.dateHourLastMessage = '',
+    this.status = ConnectionStatus.out,
+    this.messageNonVu,
+    this.urlImage ='',
+    this.priority,
+    this.number,
+    this.seen=true,
+    this.workState='',
   });
 
   factory UserX.fromJson(Map<String, dynamic> json) {
@@ -41,7 +43,8 @@ class UserX {
       urlImage: json['urlimage'],
       priority: json['Priority'],
       number: json['Num_Tel'],
-      seen: json['seen'],
+      seen: json['seen'] ,
+      workState: json['workState'] ?? "No workState found"
     );
   }
 /*

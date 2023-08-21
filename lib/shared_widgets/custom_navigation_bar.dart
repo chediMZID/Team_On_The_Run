@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:totr/providers/router_provider.dart';
 
-import '../core/theme/colors.dart';
 
 
 class CustomNavigationBar extends ConsumerWidget {
@@ -50,28 +49,28 @@ class CustomNavigationBar extends ConsumerWidget {
         items: [
           BottomNavigationBarItem(
             backgroundColor:Theme.of(context).scaffoldBackgroundColor,
-            icon: SvgPicture.asset('assets/icons/contact.svg'),
-            activeIcon: SvgPicture.asset('assets/icons/contact.svg',color: Theme.of(context).primaryColorDark,),
+            icon: SvgPicture.asset('assets/icons/contact.svg',colorFilter:ColorFilter.mode(Theme.of(context).primaryColor, BlendMode.srcIn)),
+            activeIcon: SvgPicture.asset('assets/icons/contact.svg',colorFilter:ColorFilter.mode(Theme.of(context).primaryColorDark, BlendMode.srcIn),),
             label: 'Contacts',
           ),
           BottomNavigationBarItem(
             backgroundColor:Theme.of(context).scaffoldBackgroundColor,
-            icon: SvgPicture.asset('assets/icons/chat.svg'),
-            activeIcon: SvgPicture.asset('assets/icons/chat.svg',color: Theme.of(context).primaryColorDark,),
+            icon: SvgPicture.asset('assets/icons/chat.svg',colorFilter:ColorFilter.mode(Theme.of(context).primaryColor, BlendMode.srcIn)),
+            activeIcon: SvgPicture.asset('assets/icons/chat.svg',colorFilter:ColorFilter.mode(Theme.of(context).primaryColorDark, BlendMode.srcIn),),
             label: 'Chats',
 
           ),
           BottomNavigationBarItem(
             backgroundColor:Theme.of(context).scaffoldBackgroundColor,
-            icon: SvgPicture.asset('assets/icons/channels.svg'),
-            activeIcon: SvgPicture.asset('assets/icons/channels.svg',color: Theme.of(context).primaryColorDark,),
+            icon: SvgPicture.asset('assets/icons/channels.svg',colorFilter:ColorFilter.mode(Theme.of(context).primaryColor, BlendMode.srcIn)),
+            activeIcon: SvgPicture.asset('assets/icons/channels.svg',colorFilter:ColorFilter.mode(Theme.of(context).primaryColorDark, BlendMode.srcIn),),
             label: 'Channels',
 
           ) ,
           BottomNavigationBarItem(
             backgroundColor:Theme.of(context).scaffoldBackgroundColor,
-            icon: SvgPicture.asset('assets/icons/more.svg'),
-            activeIcon: SvgPicture.asset('assets/icons/more.svg',color: Theme.of(context).primaryColorDark,),
+            icon: SvgPicture.asset('assets/icons/more.svg',colorFilter:ColorFilter.mode(Theme.of(context).primaryColor, BlendMode.srcIn)),
+            activeIcon: SvgPicture.asset('assets/icons/more.svg',colorFilter:ColorFilter.mode(Theme.of(context).primaryColorDark, BlendMode.srcIn),),
             label: 'More',
 
           ),

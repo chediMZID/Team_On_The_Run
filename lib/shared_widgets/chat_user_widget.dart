@@ -1,18 +1,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:totr/features/chats/presentation/view/chat_user_screen.dart';
 
 import '../features/contacts/presentation/view_model/home_view_model.dart';
 
 class ChatUserWidget extends ConsumerWidget {
+  final bool inList;
   final String imageUrl ;
   final String name ;
   final ConnectionStatus status ;
-  final Widget lastMessage;
+  final Widget subtitle;
   final Widget trailing;
+  final VoidCallback? onTap;
 
 
-  ChatUserWidget({required this.trailing, required this.lastMessage, required this.imageUrl,required this.name,required this.status,});
+  ChatUserWidget({required this.inList, this.onTap, required this.trailing, required this.subtitle, required this.imageUrl,required this.name,required this.status,});
 
 
   @override
@@ -26,7 +29,8 @@ class ChatUserWidget extends ConsumerWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border(
-            bottom: BorderSide(width: 1,color: Theme.of(context).focusColor),
+            bottom: inList ?BorderSide(width: 1,color: Theme.of(context).focusColor)
+                  :BorderSide.none,
           )
         ),
         child: ListTile(
@@ -45,8 +49,11 @@ class ChatUserWidget extends ConsumerWidget {
                 child: ClipOval(child: Image.asset(imageUrl))),
           ),
           title:Text(name,style: Theme.of(context).textTheme.labelMedium?.copyWith(fontSize: 16.0),),
-          subtitle:lastMessage,
+          subtitle:subtitle,
           trailing: trailing,
+          onTap: onTap,
+
+
         ),
       ),
     );

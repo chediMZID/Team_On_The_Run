@@ -34,6 +34,9 @@ class Search extends ConsumerWidget {
           borderRadius: BorderRadius.circular(55.0),
         ),
         child: TextField(
+          cursorColor: Theme.of(context).primaryColor,
+          autocorrect: false,
+          enableSuggestions: false,
           onChanged:onChanged,
           textAlignVertical: TextAlignVertical.center,
           style: Theme.of(context).textTheme.labelMedium,
@@ -51,6 +54,7 @@ class Search extends ConsumerWidget {
                 child: SvgPicture.asset('assets/icons/search.svg'),
               ),
               hintText: 'Search',
+
               suffixIcon: filter ? IconButton(
                 highlightColor: Colors.transparent,
                 splashColor: Colors.transparent,
@@ -64,6 +68,7 @@ class Search extends ConsumerWidget {
                   //width: 1,
                   //height: 1,
                 ),
+
               ):const SizedBox(),
           ),
         ),

@@ -1,9 +1,7 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:totr/features/contacts/presentation/view_model/home_view_model.dart';
-import 'package:totr/features/login/presentation/view_model/login_view_model.dart';
 import 'package:totr/shared_widgets/radio_checkbox.dart';
 import 'package:totr/shared_widgets/user_widget.dart';
 import 'package:totr/shared_widgets/userx.dart';
@@ -34,7 +32,7 @@ class CustomListView extends ConsumerWidget {
                   name: user.name,
                   imageUrl: user.urlImage,
                   status: user.status,
-                  workState: "On Duty",
+                  workState: user.workState,
                   axis: isHorizantal,
                 );
               }else{
@@ -65,7 +63,7 @@ class CustomListView extends ConsumerWidget {
                           name: user.name,
                           imageUrl: user.urlImage,
                           status: user.status,
-                          workState: "On Duty",
+                          workState: user.workState,
                           axis: isHorizantal,
                         ),
                       ),

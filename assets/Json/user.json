@@ -1,204 +1,196 @@
 {
   "users": [
     {
-      "id": "0001",
-      "NomPrenon": "John Doe",
       "LastMessage": "Bonjour !",
+      "NomPrenon": "John Doe",
+      "Num_Tel": 69587423,
+      "Priority": 1,
       "datehourLastmessage": "2023-08-18 15:30",
       "etatConneter": 1,
+      "id": "0001",
       "messagenonvu": 3,
+      "seen": false,
       "urlimage": "assets/images/User.png",
-      "Priority":1,
-      "Num_Tel": 69587423,
-      "seen": false
+      "workState": "On Duty"
     },
     {
-      "id": "0002",
-      "NomPrenon": "Jane Smith",
       "LastMessage": "Comment ça va ?",
+      "NomPrenon": "Jane Smith",
+      "Num_Tel": 30985742,
+      "Priority": 2,
       "datehourLastmessage": "2023-08-18 18:45",
       "etatConneter": 2,
+      "id": "0002",
       "messagenonvu": 0,
+      "seen": true,
       "urlimage": "assets/images/User1.png",
-      "Priority":2,
-      "Num_Tel": 30985742,
-      "seen": true
-
+      "workState": "On Duty"
     },
     {
-      "id": "0003",
-      "NomPrenon": "Alex Johnson",
       "LastMessage": "J'ai une question pour toi.",
+      "NomPrenon": "Alex Johnson",
+      "Num_Tel": 87453621,
+      "Priority": 1,
       "datehourLastmessage": "2023-08-18 09:15",
       "etatConneter": 1,
+      "id": "0003",
       "messagenonvu": 1,
+      "seen": false,
       "urlimage": "assets/images/User2.png",
-      "Priority":1,
-      "Num_Tel": 87453621,
-      "seen": false
-
+      "workState": "On Break"
     },
     {
-      "id": "0004",
-      "NomPrenon": "Emily Davis",
       "LastMessage": "Je suis impatiente de te revoir !",
+      "NomPrenon": "Emily Davis",
+      "Num_Tel": 59213847,
+      "Priority": 3,
       "datehourLastmessage": "2023-08-18 20:30",
       "etatConneter": 0,
+      "id": "0004",
       "messagenonvu": 5,
+      "seen": false,
       "urlimage": "assets/images/User3.png",
-      "Priority":3,
-      "Num_Tel": 59213847,
-      "seen": false
-
+      "workState": "On Duty"
     },
     {
-      "id": "0005",
-      "NomPrenon": "Michael Wilson",
       "LastMessage": "À plus tard !",
+      "NomPrenon": "Michael Wilson",
+      "Num_Tel": 43782915,
+      "Priority": 2,
       "datehourLastmessage": "2023-07-11 14:55",
       "etatConneter": 1,
+      "id": "0005",
       "messagenonvu": 0,
+      "seen": true,
       "urlimage": "assets/images/User4.png",
-      "Priority":2,
-      "Num_Tel": 43782915,
-      "seen": true
-
+      "workState": "Outdoor"
     },
     {
-      "id": "0006",
-      "NomPrenon": "Sophia Anderson",
       "LastMessage": "Où es-tu passé ?",
+      "NomPrenon": "Sophia Anderson",
+      "Num_Tel": 21875396,
+      "Priority": 3,
       "datehourLastmessage": "2023-07-12 09:20",
       "etatConneter": 1,
+      "id": "0006",
       "messagenonvu": 2,
-      "urlimage": "assets/images/User5.png",
-      "Priority":3,
       "seen": true,
-
-      "Num_Tel": 21875396
+      "urlimage": "assets/images/User5.png",
+      "workState": "On Break"
     },
     {
-      "id": "0007",
-      "NomPrenon": "Daniel Martinez",
       "LastMessage": "Tu veux aller au cinéma ce soir ?",
+      "NomPrenon": "Daniel Martinez",
+      "Num_Tel": 15263879,
       "datehourLastmessage": "2023-07-11 17:10",
       "etatConneter": 2,
+      "id": "0007",
       "messagenonvu": 1,
-      "seen": true,
-
+      "seen": false,
       "urlimage": "assets/images/User.png",
-      "Num_Tel": 15263879
+      "workState": "On Break"
     },
     {
-      "id": "0008",
-
-      "NomPrenon": "Olivia Thomas",
       "LastMessage": "J'ai besoin de ton aide !",
+      "NomPrenon": "Olivia Thomas",
+      "Num_Tel": 98754123,
+      "Priority": 2,
       "datehourLastmessage": "2023-07-10 12:40",
       "etatConneter": 0,
+      "id": "0008",
       "messagenonvu": 0,
+      "seen": true,
       "urlimage": "assets/images/User6.png",
-      "Priority":2,
-      "seen": false,
-
-      "Num_Tel": 98754123
+      "workState": "Outdoor"
     },
     {
-      "id": "0009",
-
-      "NomPrenon": "James Taylor",
       "LastMessage": "Joyeux anniversaire !",
+      "NomPrenon": "James Taylor",
+      "Num_Tel": 62431589,
+      "Priority": 3,
       "datehourLastmessage": "2023-07-09 21:15",
       "etatConneter": 1,
+      "id": "0009",
       "messagenonvu": 0,
       "seen": true,
-
       "urlimage": "assets/images/User7.png",
-      "Priority":3,
-      "Num_Tel": 62431589
+      "workState": "On Duty"
     },
     {
-      "id": "0010",
-
-      "NomPrenon": "Ava Moore",
       "LastMessage": "Je t'envoie les détails par e-mail.",
+      "NomPrenon": "Ava Moore",
+      "Num_Tel": 73049182,
+      "Priority": 4,
       "datehourLastmessage": "2023-07-12 10:05",
       "etatConneter": 2,
+      "id": "0010",
       "messagenonvu": 3,
-      "urlimage": "assets/images/User.png",
-      "Priority":4,
       "seen": true,
-
-      "Num_Tel": 73049182
+      "urlimage": "assets/images/User.png",
+      "workState": "On Break"
     },
     {
-      "id": "0011",
-
-      "NomPrenon": "Liam Brown",
       "LastMessage": "Je suis en route !",
+      "NomPrenon": "Liam Brown",
+      "Num_Tel": 15263879,
       "datehourLastmessage": "2023-07-11 08:20",
       "etatConneter": 0,
+      "id": "0011",
       "messagenonvu": 2,
       "seen": false,
-
       "urlimage": "assets/images/User.png",
-      "Num_Tel": 15263879
+      "workState": "Outdoor"
     },
     {
-      "id": "0012",
-
-      "NomPrenon": "Mia Wilson",
       "LastMessage": "Je ne peux pas venir ce soir.",
+      "NomPrenon": "Mia Wilson",
+      "Num_Tel": 87459136,
+      "Priority": 4,
       "datehourLastmessage": "2023-07-10 17:30",
       "etatConneter": 1,
+      "id": "0012",
       "messagenonvu": 1,
       "seen": false,
-
       "urlimage": "assets/images/User.png",
-      "Priority":4,
-      "Num_Tel": 87459136
+      "workState": "On Duty"
     },
     {
-      "id": "0013",
-
-      "NomPrenon": "Noah Johnson",
       "LastMessage": "J'ai oublié de te le dire.",
+      "NomPrenon": "Noah Johnson",
+      "Num_Tel": 30986521,
+      "Priority": 4,
       "datehourLastmessage": "2023-07-11 12:50",
       "etatConneter": 2,
+      "id": "0013",
       "messagenonvu": 0,
       "seen": true,
-
       "urlimage": "assets/images/User.png",
-      "Priority":4,
-      "Num_Tel": 30986521
+      "workState": "On Duty"
     },
     {
-      "id": "0014",
-
-      "NomPrenon": "Isabella Garcia",
       "LastMessage": "Félicitations pour ton nouveau travail !",
+      "NomPrenon": "Isabella Garcia",
+      "Num_Tel": 69518742,
       "datehourLastmessage": "2023-07-10 09:25",
       "etatConneter": 1,
+      "id": "0014",
       "messagenonvu": 0,
       "seen": true,
-
       "urlimage": "assets/images/User.png",
-      "Num_Tel": 69518742
-
+      "workState": "On Duty"
     },
     {
-      "id": "0015",
-
-      "NomPrenon": "William Lee",
       "LastMessage": "On se voit demain !",
+      "NomPrenon": "William Lee",
+      "Num_Tel": 21874359,
+      "Priority": 3,
       "datehourLastmessage": "2023-08-18 16:35",
       "etatConneter": 0,
-      "seen": true,
-
+      "id": "0015",
       "messagenonvu": 1,
+      "seen": true,
       "urlimage": "assets/images/User.png",
-      "Priority":3,
-      "Num_Tel": 21874359
+      "workState": "Outdoor"
     }
   ]
 }

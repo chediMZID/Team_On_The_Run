@@ -29,6 +29,8 @@ ThemeData lightThemes() {
       canvasColor: kNeutralColor50,
       shadowColor: shadowColorlight,
       focusColor: kNeutralColor0,
+      primaryColor: kPrimarColor0,
+
 
 
       //backgroundColor: const Color(0xffF3F9FE),
@@ -125,7 +127,6 @@ ThemeData lightThemes() {
           errorBorder: errorInputborder,
           //focusColor: const Color(0xFF5AC8FA)
           ),
-      primaryColor: kPrimarColor0,
       /*buttonTheme: ButtonThemeData(
         buttonColor: kPrimaryColor,
         disabledColor: kPrimaryColorDisabled,
