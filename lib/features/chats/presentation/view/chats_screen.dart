@@ -1,15 +1,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:totr/core/theme/sizes.dart';
 import 'package:totr/features/chats/presentation/view_model/chat_view_model.dart';
-import 'package:totr/shared_widgets/chat_listview.dart';
 import 'package:totr/shared_widgets/custom_list_view.dart';
 import 'package:totr/shared_widgets/search_field.dart';
 import 'package:totr/user_repo.dart';
 
-import 'chat_header.dart';
+import '../../../../shared_widgets/custom_header.dart';
 
 class ChatsScreen extends ConsumerWidget {
   const ChatsScreen({Key? key}) : super(key: key);

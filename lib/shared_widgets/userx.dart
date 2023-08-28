@@ -1,6 +1,6 @@
 
 
-import '../features/contacts/presentation/view_model/home_view_model.dart';
+import '../features/contacts/presentation/view_model/contact_view_model.dart';
 import 'conversation.dart';
 import 'message.dart';
 

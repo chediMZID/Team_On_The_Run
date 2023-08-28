@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:totr/features/login/presentation/widgets/customContainer.dart';
+import 'package:totr/features/login/presentation/widgets/headline_widget.dart';
+import 'package:totr/features/login/presentation/widgets/logo_widget.dart';
 import 'package:totr/shared_widgets/custom_buttons.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/sizes.dart';
@@ -16,68 +19,18 @@ class WelcomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
+          const Expanded(
             flex: 2,
-            child: Row(
-              mainAxisAlignment:MainAxisAlignment.center,
-              children: [
-                Image.asset('assets/images/zetalogo.png'),
-                RichText(
-                    text:TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'ZETA',
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                        TextSpan(
-                          text: 'link',
-                          style: Theme.of(context).textTheme.titleMedium,
-                        )
-                      ],
-                    )
-                ),
-              ],
-            ),
+            child:LogoWidget(),
           ),
           Expanded(
             flex: 5,
-            child: Container(
-              padding: const EdgeInsets.only(top: 20.0,),
-              decoration: BoxDecoration(
-                color: Theme.of(context).scaffoldBackgroundColor,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                  bottomLeft: Radius.zero,
-                  bottomRight: Radius.zero,
-                ),
-                boxShadow: const [
-                  BoxShadow(
-                    //color: Color(0x2E14243E),
-                    color: kNeutralColor700,
-                    offset: Offset(0, 0),
-                    blurRadius: 55,
-                    spreadRadius: 0,
-                  ),
-                ],
-              ),
-              child:Column(
+            child:CustomContainer(
+              child: Column(
                 children: [
-                  Row(
-                    children: [
-                      SizedBox(width: Sizes.x15,),
-                     /* IconButton(
-                        icon: const Icon(Icons.arrow_back_ios_new),
-                        onPressed: ()=>Navigator.pop(context),
-                      ),*/
-                      Text(
-                        'Welcome',
-                        style:Theme.of(context).textTheme.headlineLarge,
-                      )
-                    ],
-                  ),
+                  const HeadLine(text: 'Welcome',backArrow: false,),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: Sizes.x15,vertical: 50.0),
+                    padding: EdgeInsets.symmetric(horizontal: Paddings.medium,vertical: Paddings.superLarge),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -93,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
                           enabled: true,
                           onPressed: (){
                             GoRouter.of(context).go('/home');
-                           /* Navigator.pushAndRemoveUntil(
+                            /* Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(builder: (context)=>HomeScreen()),
                                 (route) => false,
@@ -105,8 +58,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
-            ),
+            )
           )
         ],
       ),

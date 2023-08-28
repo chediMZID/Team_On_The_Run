@@ -7,7 +7,7 @@ import 'package:totr/features/chats/presentation/view_model/chat_view_model.dart
 import 'package:totr/router/router_provider.dart';
 import 'package:totr/shared_widgets/conversation.dart';
 import 'package:totr/shared_widgets/message.dart';
-import 'package:totr/shared_widgets/message_bubble.dart';
+import 'package:totr/features/chats/presentation/widgets/message_bubble.dart';
 import 'package:totr/shared_widgets/userx.dart';
 
 

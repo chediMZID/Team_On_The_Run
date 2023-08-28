@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:totr/core/theme/sizes.dart';
 import 'package:totr/features/chats/presentation/view_model/chat_view_model.dart';
-import 'package:totr/features/contacts/presentation/view_model/home_view_model.dart';
-import 'package:totr/shared_widgets/channel_widget.dart';
+import 'package:totr/features/contacts/presentation/view_model/contact_view_model.dart';
+import 'package:totr/features/channels/presentation/widgets/channel_widget.dart';
 import 'package:totr/shared_widgets/userx.dart';
 
 import '../features/channels/presentation/view_model/channels_view_model.dart';
 import '../features/chats/presentation/view/chat_user_screen.dart';
-import 'chat_user_widget.dart';
+import 'channel.dart';
+import '../features/chats/presentation/widgets/chat_user_widget.dart';
 import 'radio_checkbox.dart';
-import 'user_widget.dart';
+import '../features/contacts/presentation/widgets/user_widget.dart';
 
 enum WidgetType{
   chatWidget,
@@ -31,6 +32,8 @@ class CustomList extends ConsumerWidget {
     final ChatNotifier chatNotifier = ref.watch(chatProvider);
     final chatQuery = ref.watch(chatNotifier.searchQueryProvider);
     final homeQuery =ref.watch(homeNotifier.searchQueryProvider);
+    final channelQuery = ref.watch(chatNotifier.searchQueryProvider);
+
     return Padding(
       padding:  EdgeInsets.only(left: Paddings.medium,right: Paddings.medium),
       child: ListView.builder(
@@ -140,9 +143,12 @@ class CustomList extends ConsumerWidget {
             }
             else if (type==WidgetType.channelWidget){
 
-              final channel =list[index];
+              Channel channel =list[index];
+              channel.index = index;
+              if (channel.name.toLowerCase().contains(channelQuery)){
+                return ChannelWidget(channel: channel,);
 
-              return ChannelWidget(channel: channel,);
+              }
             }
             else {
                 return const SizedBox();

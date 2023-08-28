@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:totr/features/contacts/presentation/view_model/home_view_model.dart';
+import 'package:totr/features/contacts/presentation/view_model/contact_view_model.dart';
 
 
 class Toggle extends ConsumerWidget {
@@ -77,7 +77,7 @@ class Toggle extends ConsumerWidget {
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../features/contacts/presentation/view_model/home_view_model.dart';
+import '../features/contacts/presentation/view_model/contact_view_model.dart';
 
 class Buttons extends ConsumerWidget {
   const Buttons({Key? key}) : super(key: key);

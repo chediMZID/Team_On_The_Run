@@ -248,6 +248,12 @@ ThemeData lightThemes() {
           fontSize: Sizes.x14,
           color: kPrimarColor0,
         ),
+        labelLarge: TextStyle(
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w400,
+          fontSize: Sizes.x18,
+          color: kPrimarColor0,
+        ),
       )
   );
 }

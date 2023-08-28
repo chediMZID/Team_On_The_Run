@@ -6,7 +6,7 @@ import 'package:totr/core/theme/sizes.dart';
 import 'package:totr/shared_widgets/filter.dart';
 
 import '../core/theme/colors.dart';
-import '../features/contacts/presentation/view_model/home_view_model.dart';
+import '../features/contacts/presentation/view_model/contact_view_model.dart';
 
 class Search extends ConsumerWidget {
 

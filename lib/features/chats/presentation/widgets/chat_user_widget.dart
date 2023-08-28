@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:totr/features/chats/presentation/view/chat_user_screen.dart';
 
-import '../features/contacts/presentation/view_model/home_view_model.dart';
+import '../../../contacts/presentation/view_model/contact_view_model.dart';
 
 class ChatUserWidget extends ConsumerWidget {
   final bool inList;

@@ -29,6 +29,7 @@ class Paddings {
   static double large = 20;
   static double veryLarge = 25;
   static double exceptional = 30;
+  static double superLarge = 50;
 }
 class Sizes {
   static  double x30 = 30;

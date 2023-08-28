@@ -16,7 +16,7 @@ final GlobalKey<NavigatorState> shellNavigator = GlobalKey(debugLabel: 'shell');
 final routerProvider = Provider<GoRouter>((ref) {
   //final router = RouteNotifier(ref);
   return GoRouter(
-    initialLocation: '/home',
+    initialLocation: '/login',
     //debugLogDiagnostics: true,
     //refreshListenable: router,
     navigatorKey: rootNavigator,

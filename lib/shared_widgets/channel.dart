@@ -7,8 +7,11 @@ class Channel {
   final int usersNumber;
   final int connectedUsersNumber;
   bool isOpen;
+  int index;
 
-  Channel({this.isOpen = false,
+  Channel({
+    this.index=0,
+    this.isOpen = false,
     required this.name,
     required this.priorityLevel,
     required this.usersNumber,

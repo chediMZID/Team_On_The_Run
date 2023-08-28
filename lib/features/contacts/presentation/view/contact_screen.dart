@@ -1,15 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:totr/features/contacts/presentation/view_model/home_view_model.dart';
+import 'package:totr/features/contacts/presentation/view_model/contact_view_model.dart';
 import 'package:totr/shared_widgets/custom_list_view.dart';
 import 'package:totr/shared_widgets/custom_navigation_bar.dart';
 import 'package:totr/features/contacts/presentation/view/contact_header.dart';
 import 'package:totr/shared_widgets/toggle_buttons.dart';
-import 'package:totr/shared_widgets/user_widget.dart';
+import 'package:totr/features/contacts/presentation/widgets/user_widget.dart';
 import 'package:totr/user_repo.dart';
-
-import '../../../../shared_widgets/custom_listview.dart';
 
 
 

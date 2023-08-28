@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:totr/features/contacts/presentation/view_model/home_view_model.dart';
+import 'package:totr/features/contacts/presentation/view_model/contact_view_model.dart';
 
-import 'dialog_buttons.dart';
+import '../../../../shared_widgets/dialog_buttons.dart';
 
 
 

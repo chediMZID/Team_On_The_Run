@@ -26,12 +26,12 @@ class HomeNotifier extends ChangeNotifier {
 
   final searchFocusProvider = StateProvider<bool>((ref) => false);
   final buttonProvider = StateProvider<bool>((ref) => true);
-  final usersProvider = FutureProvider<List<dynamic>>((ref) async {
+  /*final usersProvider = FutureProvider<List<dynamic>>((ref) async {
     await Future.delayed(const Duration(seconds: 2));
     final jsonString = await rootBundle.loadString('assets/Json/user.json');
     final jsonData = json.decode(jsonString);
     return jsonData['users'];
-  });
+  });*/
   final searchQueryProvider = StateProvider<String>((ref) => '');
 
   final favoriteActiveProvider = StateProvider<bool>((ref) => false);
@@ -51,7 +51,7 @@ class HomeNotifier extends ChangeNotifier {
       error: (_,___)=>[],
       loading: ()=>[])
   );
-  final group_ind = StateProvider<bool>((ref) => true);
-  final on_off_duty = StateProvider<bool>((ref) => true);
-  final on_off_line = StateProvider<bool>((ref) => true);
+  final groupInd = StateProvider<bool>((ref) => true);
+  final onOffDuty = StateProvider<bool>((ref) => true);
+  final onOffLine = StateProvider<bool>((ref) => true);
 }

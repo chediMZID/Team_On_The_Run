@@ -16,7 +16,7 @@ class GetStartedScreen extends ConsumerWidget {
     return Scaffold(
       //backgroundColor: kNeutralColor100,
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: Sizes.x15,vertical: Sizes.x20),
+        padding:  EdgeInsets.symmetric(horizontal: Paddings.medium,vertical: Paddings.large),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,

@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:totr/core/strings/assests.dart';
 import 'package:totr/features/chats/presentation/view_model/chat_view_model.dart';
-import 'package:totr/shared_widgets/chat_action_row.dart';
-import 'package:totr/shared_widgets/chat_user_widget.dart';
+import 'package:totr/features/chats/presentation/widgets/chat_action_row.dart';
+import 'package:totr/features/chats/presentation/widgets/chat_user_widget.dart';
 import 'package:totr/shared_widgets/userx.dart';
 
 
