@@ -1,10 +1,13 @@
+/*
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:totr/features/chats/presentation/view_model/chat_view_model.dart';
 import 'package:totr/features/login/domain/entities/user.dart';
 import 'package:totr/shared_widgets/chat_user_widget.dart';
+import 'package:totr/shared_widgets/conversation.dart';
 import 'package:totr/shared_widgets/userx.dart';
+import 'package:totr/user_repo.dart';
 
 import '../features/chats/presentation/view/chat_user_screen.dart';
 import '../features/contacts/presentation/view_model/home_view_model.dart';
@@ -15,12 +18,14 @@ class ChatListView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final ChatNotifier chatNotifier = ref.watch(chatProvider);
-    final users = ref.watch(chatNotifier.usersProvider);
+    final users = ref.watch(usersListProvider);
 
-    final List<Message> messages = [
+  */
+/*  final List<Message> messages = [
       Message(sender: 'John', text: "Hello! How are you brother ? I haven't seen you for a longtime" , time: DateTime.now(), isUser: false),
       Message(sender: 'You', text: 'Hi there!', time: DateTime.now().add(Duration(minutes: 5)), isUser: true),
-    ];
+    ];*//*
+
 
     return users.when(
       data: (users) {
@@ -31,8 +36,14 @@ class ChatListView extends ConsumerWidget {
             scrollDirection: Axis.vertical,
             itemCount: users.length,
             itemBuilder: (context, index) {
-              UserX user = UserX.fromJson(users[index]);
+              UserX user = users[index];
+              //UserX user = UserX.fromJson(users[index]);
+              //final Message msg = Message(text: 'User number $index \n I m ${user.name}', time: DateTime.now(), isUser: false);
+              //Conversation conv = Conversation();
+              //conv.messages = [msg];
+              //user.conversation = conv;
               String lastMessage = user.lastMessage;
+
               String dateLastMessage = user.dateHourLastMessage;
               bool seen =user.seen;
               DateTime now =DateTime.now();
@@ -58,7 +69,8 @@ class ChatListView extends ConsumerWidget {
                     subtitle: Text(lastMessage,style:seen? Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w300):Theme.of(context).textTheme.titleSmall),
                     trailing: Text(dateLastMessage,style: Theme.of(context).textTheme.bodySmall,),
                     onTap: (){
-                      ref.read(chatNotifier.currentConversation.notifier).state.messages=messages;
+
+                      ref.read(chatNotifier.currentConversation.notifier).update((_) => user.conversation);
                       ref.read(chatNotifier.currentMessagingPartner.notifier).state=user;
                       ref.read(chatNotifier.conversationOpen.notifier).state=true;
                       Navigator.push(context,MaterialPageRoute(builder: (context)=>ChatUserScreen()));
@@ -79,4 +91,4 @@ class ChatListView extends ConsumerWidget {
       error: (error, stackTrace) => Text('Error: $error'),
     );
   }
-}
+}*/

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:totr/core/strings/assests.dart';
 //import 'package:totr/core/theme/colors.dart';
 import 'package:totr/core/theme/sizes.dart';
 import 'package:totr/shared_widgets/custom_buttons.dart';
@@ -29,9 +30,10 @@ class GetStartedScreen extends ConsumerWidget {
             Expanded(
               flex: 2,
               child: Row(
+                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment:MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/images/zetalogo.png'),
+                  Image.asset(Assets.zetaLogo),
                   RichText(
                     text:TextSpan(
                       children: [

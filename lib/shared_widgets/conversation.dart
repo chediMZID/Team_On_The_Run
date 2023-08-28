@@ -1,14 +1,22 @@
 
+import 'dart:async';
+import 'package:flutter/material.dart';
 import 'package:totr/shared_widgets/message.dart';
 
-class Conversation {
+class Conversation extends ChangeNotifier {
 
-  List<Message> messages;
+  final _messagesController = StreamController<List<Message>>() ;
+  Stream<List<Message>> get messageStream => _messagesController.stream;
 
-  Conversation({required this.messages});
+  List<Message> messages = [];
 
+  Conversation({required this.messages}){
+    _messagesController.add(messages);
+  }
   void addMessage (Message msg){
     messages.add(msg);
+    _messagesController.add(messages);
+    notifyListeners();
   }
 
 }

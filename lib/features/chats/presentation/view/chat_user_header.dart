@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:totr/core/strings/assests.dart';
 import 'package:totr/features/chats/presentation/view_model/chat_view_model.dart';
 import 'package:totr/shared_widgets/chat_action_row.dart';
 import 'package:totr/shared_widgets/chat_user_widget.dart';
@@ -21,7 +22,7 @@ class ChatUserHeader extends ConsumerWidget implements PreferredSizeWidget{
     return AppBar(
       leading: IconButton(
         icon: SvgPicture.asset(
-          'assets/icons/arrow.svg',
+          Assets.backArrow,
           colorFilter:ColorFilter.mode(Theme.of(context).primaryColor, BlendMode.srcIn),
         ),
         onPressed: (){

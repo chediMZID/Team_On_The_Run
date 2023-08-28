@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:totr/core/strings/assests.dart';
+import 'package:totr/core/theme/sizes.dart';
 
 
 
@@ -15,11 +17,11 @@ void showOptionsDialog(BuildContext context) {
         title: Container(
             width:MediaQuery.of(context).size.width *0.9,
             decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(Raidus.extraSmall),
             color: Theme.of(context).canvasColor,
 
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical:17.0 ),
+          padding: EdgeInsets.symmetric(horizontal: Paddings.veryLarge ,vertical:Paddings.medium ),
             child: const Text('Contact options')
         ),
         content: SingleChildScrollView(
@@ -93,7 +95,7 @@ void showBottom(BuildContext context,String name,String imageUrl,) {
             Card(
               elevation: 5.0,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 10.0),
+                padding:  EdgeInsets.symmetric(horizontal: Paddings.veryLarge,vertical: Paddings.regular),
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.transparent,
@@ -113,7 +115,7 @@ void showBottom(BuildContext context,String name,String imageUrl,) {
                     highlightColor: Colors.transparent,
                       splashColor: Colors.transparent,
                       icon: SvgPicture.asset(
-                        'assets/icons/remove.svg',
+                        Assets.remove,
                       ),
                     onPressed: (){
                         Navigator.of(context).pop();
@@ -123,7 +125,7 @@ void showBottom(BuildContext context,String name,String imageUrl,) {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0,vertical: 10.0),
+              padding: EdgeInsets.symmetric(horizontal: Paddings.exceptional,vertical: Paddings.regular),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,11 +138,11 @@ void showBottom(BuildContext context,String name,String imageUrl,) {
                           ),
                         )
                     ),
-                    padding: EdgeInsets.only(left: 50.0,top: 20.0,bottom: 10.0),
+                    padding: EdgeInsets.only(left: 50.0,top: Paddings.large,bottom: Paddings.regular),
                     child: Row(
                       children: [
-                        SvgPicture.asset('assets/icons/call.svg'),
-                        SizedBox(width: 24.0,),
+                        SvgPicture.asset(Assets.call),
+                        const SizedBox(width: 24.0,),
                         Text('+33 53 56 88 45',
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
@@ -155,11 +157,11 @@ void showBottom(BuildContext context,String name,String imageUrl,) {
                         ),
                       )
                     ),
-                    padding: EdgeInsets.only(left: 50.0,top: 20.0,bottom: 10.0),
+                    padding: EdgeInsets.only(left: 50.0,top: Paddings.large,bottom: Paddings.regular),
                     child: Row(
                       children: [
-                        SvgPicture.asset('assets/icons/sms.svg'),
-                        SizedBox(width: 24.0,),
+                        SvgPicture.asset(Assets.sms),
+                        const SizedBox(width: 24.0,),
                         Text('Jhon.snow@yahoo.fr',
                           style: Theme.of(context).textTheme.titleSmall,
                           ),
@@ -167,11 +169,11 @@ void showBottom(BuildContext context,String name,String imageUrl,) {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 50.0,top: 20.0,bottom: 10.0),
+                    padding: EdgeInsets.only(left: 50.0,top: Paddings.large,bottom: Paddings.regular),
                     child: Row(
                       children: [
-                        SvgPicture.asset('assets/icons/message-add.svg'),
-                        SizedBox(width: 24.0,),
+                        SvgPicture.asset(Assets.addMessage),
+                        const SizedBox(width: 24.0,),
                         Text('Send message',
                           style: Theme.of(context).textTheme.titleSmall,
                         ),

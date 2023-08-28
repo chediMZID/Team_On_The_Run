@@ -7,6 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:totr/shared_widgets/userx.dart';
+import 'package:totr/user_repo.dart';
 
 enum ConnectionStatus { connected, disconnected, busy, out }
 
@@ -33,7 +35,22 @@ class HomeNotifier extends ChangeNotifier {
   final searchQueryProvider = StateProvider<String>((ref) => '');
 
   final favoriteActiveProvider = StateProvider<bool>((ref) => false);
-  final isCheckedList = StateProvider<List<String>>((ref) => []);
+  final isCheckedList = StateProvider<List<String>>((ref) => ref.watch(usersListProvider)
+      .when(
+      data: (users)=>users.where(
+              (user) => user.isFavorite).map(
+              (user) => user.id).toList(),
+      error: (_,___)=>[],
+      loading: ()=>[])
+  );
+  final favoriteUsers =StateProvider<List<String>>((ref) => ref.watch(usersListProvider)
+      .when(
+      data: (users)=>users.where(
+              (user) => user.isFavorite).map(
+              (user) => user.id).toList(),
+      error: (_,___)=>[],
+      loading: ()=>[])
+  );
   final group_ind = StateProvider<bool>((ref) => true);
   final on_off_duty = StateProvider<bool>((ref) => true);
   final on_off_line = StateProvider<bool>((ref) => true);

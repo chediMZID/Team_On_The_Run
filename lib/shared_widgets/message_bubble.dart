@@ -7,12 +7,11 @@ import 'package:totr/shared_widgets/userx.dart';
 
 
 class MessageBubble extends ConsumerWidget {
-  final String sender;
   final String text;
   final DateTime time;
   final bool isUser;
 
-  MessageBubble({required this.sender, required this.text, required this.time, required this.isUser});
+  MessageBubble({required this.text, required this.time, required this.isUser});
 
   @override
   Widget build(BuildContext context,WidgetRef ref) {
@@ -51,13 +50,11 @@ class MessageBubble extends ConsumerWidget {
                   color:isUser ? Theme.of(context).canvasColor:Theme.of(context).primaryColor ,
                 ),
                 padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                child: Flexible(
-                  child: Text(
-                    text,
-                    style:Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: isUser ? Theme.of(context).primaryColor
-                            :Theme.of(context).scaffoldBackgroundColor),),
-                )
+                child: Text(
+                  text,
+                  style:Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color: isUser ? Theme.of(context).primaryColor
+                          :Theme.of(context).scaffoldBackgroundColor),)
 
               ),
               SizedBox(height: 2.0),

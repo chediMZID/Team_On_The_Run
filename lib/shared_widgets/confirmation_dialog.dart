@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:totr/shared_widgets/custom_buttons.dart';
 import 'package:totr/shared_widgets/custom_home_buttons.dart';
-void showConfirmationDialog(BuildContext context,String string){
+void showConfirmationDialog(BuildContext context,String string,void Function(BuildContext) onPressed){
 
   showDialog(
       context: context,
@@ -35,9 +35,7 @@ void showConfirmationDialog(BuildContext context,String string){
               padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
               text: 'Proceed',
                 primary: true,
-                onPressed: (){
-                Navigator.of(context).pop();
-                },
+                onPressed:(){onPressed(context);}
 
             )
            ],

@@ -7,7 +7,7 @@ import 'package:totr/features/chats/presentation/view/chats_screen.dart';
 import 'package:totr/features/more/presentation/view/more_screen.dart';
 import 'package:totr/shared_widgets/home.dart';
 
-import '../features/contacts/presentation/view/home_screen.dart';
+import '../features/contacts/presentation/view/contact_screen.dart';
 import '../features/login/presentation/view/get_started_screen.dart';
 
 final GlobalKey<NavigatorState> rootNavigator = GlobalKey(debugLabel: 'root');
@@ -32,7 +32,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         routes: [
           GoRoute(
             name: 'home',
-            builder: (context,state) => HomeScreen(key: state.pageKey,),
+            builder: (context,state) => ContactScreen(key: state.pageKey,),
             path: '/home',
           ),
           GoRoute(

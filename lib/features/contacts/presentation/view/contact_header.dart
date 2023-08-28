@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:totr/core/strings/assests.dart';
+import 'package:totr/core/theme/sizes.dart';
 //import 'package:totr/core/theme/colors.dart';
 import 'package:totr/features/contacts/presentation/view_model/home_view_model.dart';
 import 'package:totr/shared_widgets/actions_component.dart';
 import 'package:totr/shared_widgets/confirmation_dialog.dart';
 import 'package:totr/shared_widgets/search_field.dart';
+import 'package:totr/user_repo.dart';
 
 
-class Header extends ConsumerWidget implements PreferredSizeWidget {
-  const Header({super.key});
+class ContactHeader extends ConsumerWidget implements PreferredSizeWidget {
+  const ContactHeader({super.key});
 
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 130.0);
 
   @override
   Widget build(BuildContext context,WidgetRef ref) {
     //final ConnectionStatus currentFlag = ref.watch(homeNotifier.flagProvider);
     final HomeNotifier homeNotifier = ref.watch(homeProvider);
+    final users = ref.watch(usersListProvider);
     return AppBar(
       toolbarHeight: 120.0,
       //backgroundColor: Theme.of,
@@ -31,16 +34,16 @@ class Header extends ConsumerWidget implements PreferredSizeWidget {
             'Contacts',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          ActionsComponent(),
+          const ActionsComponent(),
         ],
       ),
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: 50.0,
-              width: MediaQuery.of(context).size.width * 0.8,
+              width: ScreenSize.screenWidth * 0.8,
               child: Row(
                 children: [
                   Expanded(
@@ -50,7 +53,13 @@ class Header extends ConsumerWidget implements PreferredSizeWidget {
 
                       onPressed: () {
                         if(ref.watch(homeNotifier.favoriteActiveProvider)){
-                          showConfirmationDialog(context,'Select and add to favorites');
+                          showConfirmationDialog(context,'Select and add to favorites',
+                              (BuildContext ctx){
+                            ref.read(homeNotifier.favoriteUsers.notifier).state = List.from(ref.watch(homeNotifier.isCheckedList));
+                            Navigator.of(ctx).pop();
+
+                              });
+                          print(ref.watch(homeNotifier.favoriteUsers));
                         }
                         ref.read(homeNotifier.favoriteActiveProvider.notifier).state=
                             !ref.read(homeNotifier.favoriteActiveProvider.notifier).state;
@@ -59,14 +68,14 @@ class Header extends ConsumerWidget implements PreferredSizeWidget {
                       icon: CircleAvatar(
 
                         child: Padding(
-                          padding: const EdgeInsets.all(6.0),
+                          padding: EdgeInsets.all(Paddings.small),
                           child: ref.watch(homeNotifier.favoriteActiveProvider) ?
                           SvgPicture.asset(
-                            'assets/icons/favorite.svg',
-                            color: Theme.of(context).scaffoldBackgroundColor
+                            Assets.favorite,
+                            colorFilter:ColorFilter.mode(Theme.of(context).scaffoldBackgroundColor, BlendMode.srcIn)
                           ):SvgPicture.asset(
-                              'assets/icons/favorite_outlined.svg',
-                              color: Theme.of(context).scaffoldBackgroundColor
+                              Assets.favoriteOutilned,
+                              colorFilter:ColorFilter.mode(Theme.of(context).scaffoldBackgroundColor, BlendMode.srcIn)
                           )
                         ),
                       ),

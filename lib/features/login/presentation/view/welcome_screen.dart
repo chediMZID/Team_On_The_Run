@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:totr/shared_widgets/custom_buttons.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/sizes.dart';
-import '../../../contacts/presentation/view/home_screen.dart';
+import '../../../contacts/presentation/view/contact_screen.dart';
 
 
 class WelcomeScreen extends StatelessWidget {

@@ -6,7 +6,8 @@
       "nombre_user_dans_channel": 5,
       "nombre_user_connectes": 4,
       "liste_id_user": [1, 2, 3,4,5],
-      "Priority":2
+      "Priority":2,
+      "isOpen": false
     },
     {
       "id_channel": "channel2",
@@ -14,7 +15,9 @@
       "nombre_user_dans_channel": 3,
       "nombre_user_connectes": 1,
       "liste_id_user" :[4,5],
-      "Priority":2
+      "Priority":2,
+      "isOpen": true
+
     },
     {
       "id_channel": "channel3",
@@ -22,7 +25,9 @@
       "nombre_user_dans_channel": 10,
       "nombre_user_connectes": 8,
       "liste_id_user": [1, 2, 3,4,5, 7 ,9,11 ,15 ,14],
-      "Priority":2
+      "Priority":2,
+      "isOpen": true
+
     },
     {
       "id_channel": "channel4",
@@ -30,7 +35,9 @@
       "nombre_user_dans_channel": 7,
       "nombre_user_connectes": 6,
       "liste_id_user": [4,5, 7 ,9,11 ,15 ,14],
-      "Priority":2
+      "Priority":2,
+      "isOpen": false
+
     },
     {
       "id_channel": "channel5",
@@ -38,7 +45,9 @@
       "nombre_user_dans_channel": 15,
       "nombre_user_connectes": 10,
       "liste_id_user": [1,2,3,4,5, 6,7 ,8,9,10,11,12,13 ,15 ,14],
-      "Priority":2
+      "Priority":2,
+      "isOpen": false
+
     },
     {
       "id_channel": "channel6",
@@ -46,7 +55,9 @@
       "nombre_user_dans_channel": 13,
       "nombre_user_connectes": 5,
       "liste_id_user": [2,3,4, 6,7 ,8,9,10,11,12,13 ,15 ,14],
-      "Priority":2
+      "Priority":2,
+      "isOpen": true
+
     },
     {
       "id_channel": "channel7",
@@ -54,7 +65,9 @@
       "nombre_user_dans_channel": 11,
       "nombre_user_connectes": 9,
       "liste_id_user": [2,3,4, 6,7 ,8,9,10,11,12,13 ,14],
-      "Priority":2
+      "Priority":2,
+      "isOpen": false
+
     }
   ]
 }

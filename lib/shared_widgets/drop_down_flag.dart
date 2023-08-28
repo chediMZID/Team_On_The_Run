@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:totr/core/strings/assests.dart';
 import '../features/contacts/presentation/view_model/home_view_model.dart';
 
 class DropDownFlag extends ConsumerWidget {
@@ -21,13 +22,15 @@ class DropDownFlag extends ConsumerWidget {
       },
       items: [
         dropdownMenuItem(ConnectionStatus.connected,
-            'assets/icons/greenflag.png'),
+           const Color.fromRGBO(30, 203, 68, 1)),
         dropdownMenuItem(ConnectionStatus.disconnected,
-            'assets/icons/greyflag.png'),
+           const Color.fromRGBO(255, 173, 49, 1)),
         dropdownMenuItem(
-            ConnectionStatus.busy, 'assets/icons/orangeflag.png'),
+            ConnectionStatus.busy,
+            const Color.fromRGBO(171, 171, 171, 1)),
         dropdownMenuItem(
-            ConnectionStatus.out, 'assets/icons/blueflag.png'),
+            ConnectionStatus.out,
+            const Color.fromRGBO(20, 36, 62, 1)),
       ],
       icon: const SizedBox(),
       underline: const SizedBox(),
@@ -36,11 +39,11 @@ class DropDownFlag extends ConsumerWidget {
 }
 
 DropdownMenuItem<ConnectionStatus> dropdownMenuItem(
-    ConnectionStatus status, String path) {
+    ConnectionStatus status, Color color) {
   return DropdownMenuItem<ConnectionStatus>(
     value: status,
     child: Image.asset(
-      path,
+      Assets.flag,color: color,
     ),
   );
 }

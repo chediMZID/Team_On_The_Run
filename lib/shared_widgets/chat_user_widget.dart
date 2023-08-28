@@ -20,41 +20,34 @@ class ChatUserWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context,WidgetRef ref) {
-    return GestureDetector(
-      onTap: (){
-     },
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: inList ?BorderSide(width: 1,color: Theme.of(context).focusColor)
+                :BorderSide.none,
+        )
+      ),
+      child: ListTile(
+        contentPadding: EdgeInsets.zero,
+       /* shape: Border(
+          bottom: BorderSide(width: 1,color: Theme.of(context).focusColor),
+        ),*/
 
-      onLongPress: (){
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: inList ?BorderSide(width: 1,color: Theme.of(context).focusColor)
-                  :BorderSide.none,
-          )
+        // bug when using border inside ListTile !!!!
+        leading:CircleAvatar(
+          radius: status == ConnectionStatus.connected ? 27:25,
+          backgroundColor: status == ConnectionStatus.connected ? Colors.green:Colors.transparent,
+          child: SizedBox(
+              width: 50.0,
+              height: 50.0,
+              child: ClipOval(child: Image.asset(imageUrl))),
         ),
-        child: ListTile(
-          contentPadding: EdgeInsets.zero,
-         /* shape: Border(
-            bottom: BorderSide(width: 1,color: Theme.of(context).focusColor),
-          ),*/
-
-          // bug when using border inside ListTile !!!!
-          leading:CircleAvatar(
-            radius: status == ConnectionStatus.connected ? 27:25,
-            backgroundColor: status == ConnectionStatus.connected ? Colors.green:Colors.transparent,
-            child: SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: ClipOval(child: Image.asset(imageUrl))),
-          ),
-          title:Text(name,style: Theme.of(context).textTheme.labelMedium?.copyWith(fontSize: 16.0),),
-          subtitle:subtitle,
-          trailing: trailing,
-          onTap: onTap,
+        title:Text(name,style: Theme.of(context).textTheme.labelMedium?.copyWith(fontSize: 16.0),),
+        subtitle:subtitle,
+        trailing: trailing,
+        onTap: onTap,
 
 
-        ),
       ),
     );
   }

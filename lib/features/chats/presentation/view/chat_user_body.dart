@@ -2,10 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:totr/core/strings/assests.dart';
 import 'package:totr/features/chats/presentation/view_model/chat_view_model.dart';
+import 'package:totr/router/router_provider.dart';
 import 'package:totr/shared_widgets/conversation.dart';
 import 'package:totr/shared_widgets/message.dart';
 import 'package:totr/shared_widgets/message_bubble.dart';
+import 'package:totr/shared_widgets/userx.dart';
 
 
 class ChatUserBody extends ConsumerWidget {
@@ -17,29 +20,47 @@ class ChatUserBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context,WidgetRef ref) {
-    ChatNotifier chatNotifier = ref.watch(chatProvider);
+    final ChatNotifier chatNotifier = ref.watch(chatProvider);
+    //final currentConversation = ref.read(chatNotifier.currentConversation);
+    final stream = ref.watch(chatNotifier.messagesProvider.stream);
+
+    //final UserX user = ref.watch(chatNotifier.currentMessagingPartner);
+   //final List<Message> messages = ref.watch(chatNotifier.currentConversation).messages;
     return Column(
         children: [
           Expanded(
-            child: Consumer(
-              builder: (context,r,child){
-                ChatNotifier chn =ref.watch(chatProvider);
-                final messages =r.watch(chn.currentConversation).messages;
-                return ListView.builder(
-                  itemCount: r.watch(chn.currentConversation).messages.length,
-                  itemBuilder: (context, index) {
-
-                    final message = messages[index];
-                    return MessageBubble(
-                      sender: message.sender,
-                      text: message.text,
-                      time: message.time,
-                      isUser: message.isUser,
+              child:StreamBuilder<List<Message>>(
+                stream: stream,
+                builder: (context, snapshot) {
+                  return ListView.builder(
+                    itemCount:  ref.watch(chatNotifier.currentConversation).messages.length ,
+                      itemBuilder: (context,index){
+                        final message = ref.watch(chatNotifier.currentConversation).messages[index];
+                        return MessageBubble(
+                          text: message.text,
+                          time: message.time,
+                          isUser: message.isUser,
+                        );
+                      }
+                  );
+                }
+              )
+               /*stream.when(
+                  data: (messages){
+                    return ListView.builder(
+                        itemCount:  ref.watch(chatNotifier.currentConversation).messages.length ,
+                        itemBuilder: (context,index){
+                          final message = ref.watch(chatNotifier.currentConversation).messages[index];
+                          return MessageBubble(
+                            text: message.text,
+                            time: message.time,
+                            isUser: message.isUser,
+                          );
+                        }
                     );
                   },
-                );
-              },
-            ),
+                  error: (error,stackTrace) => Text(error.toString()),
+                  loading: () => const Center(child: CircularProgressIndicator(),)),*/
           ),
           Container(
             decoration: BoxDecoration(
@@ -61,7 +82,7 @@ class ChatUserBody extends ConsumerWidget {
                 IconButton(
                     onPressed: (){},
                     icon: SvgPicture.asset(
-                        'assets/icons/addfile.svg'
+                        Assets.addFile
                     )
                 ),
                 Expanded(
@@ -80,18 +101,18 @@ class ChatUserBody extends ConsumerWidget {
                 ),
                 IconButton(
                     onPressed: (){
-                      var msg = Message(sender: 'you', text: chatNotifier.chatController.text, time: DateTime.now(), isUser:true);
-                      ref.read(chatNotifier.currentConversation.notifier).state.addMessage(msg);
+                      var msg = Message( text: chatNotifier.chatController.text, time: DateTime.now(), isUser:true);
+                      ref.read(chatNotifier.currentConversation.notifier).update((state) { state.addMessage(msg);return state;});
 
                     },
                     icon: SvgPicture.asset(
-                        'assets/icons/send.svg'
+                        Assets.send
                     )
                 ),
                 IconButton(
                     onPressed: (){},
                     icon: SvgPicture.asset(
-                        'assets/icons/record.svg'
+                        Assets.gps
                     )
                 ),
               ],

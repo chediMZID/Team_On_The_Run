@@ -1,6 +1,8 @@
 
 
 import '../features/contacts/presentation/view_model/home_view_model.dart';
+import 'conversation.dart';
+import 'message.dart';
 
 class UserX {
   final String id;
@@ -14,6 +16,8 @@ class UserX {
   final int? number;
   final bool seen;
   final String workState;
+  bool isFavorite;
+  Conversation conversation ;
 
   UserX({
     this.id ='0',
@@ -27,9 +31,16 @@ class UserX {
     this.number,
     this.seen=true,
     this.workState='',
+    required this.conversation,
+    this.isFavorite=false,
   });
 
   factory UserX.fromJson(Map<String, dynamic> json) {
+    final messagesJson = json['messages'] as List<dynamic>;
+    final List<Message> messages = messagesJson.map((msgJson){
+      return Message.fromJson(msgJson);
+    }).toList();
+
     return UserX(
       id: json['id'],
       name: json['NomPrenon'],
@@ -44,7 +55,9 @@ class UserX {
       priority: json['Priority'],
       number: json['Num_Tel'],
       seen: json['seen'] ,
-      workState: json['workState'] ?? "No workState found"
+      workState: json['workState'] ?? "No workState found",
+      isFavorite: json['isFavorite']?? false,
+      conversation: Conversation(messages:messages),
     );
   }
 /*

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:totr/core/strings/assests.dart';
+import 'package:totr/core/theme/sizes.dart';
 import 'package:totr/shared_widgets/filter.dart';
 
 import '../core/theme/colors.dart';
@@ -31,7 +33,7 @@ class Search extends ConsumerWidget {
             color: Colors.transparent,
             width: 0.0,
           ),
-          borderRadius: BorderRadius.circular(55.0),
+          borderRadius: BorderRadius.circular(Raidus.extraLarge),
         ),
         child: TextField(
           cursorColor: Theme.of(context).primaryColor,
@@ -42,29 +44,29 @@ class Search extends ConsumerWidget {
           style: Theme.of(context).textTheme.labelMedium,
           decoration:  InputDecoration(
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(55.0),
+                borderRadius: BorderRadius.circular(Raidus.extraLarge),
                 borderSide: BorderSide(color: Theme.of(context).focusColor,width:1.0),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(55.0),
+                borderRadius: BorderRadius.circular(Raidus.extraLarge),
                 borderSide:  BorderSide(color: Theme.of(context).focusColor,width:1.0),
               ),
               prefixIcon: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SvgPicture.asset('assets/icons/search.svg'),
+                padding: EdgeInsets.all(Raidus.small),
+                child: SvgPicture.asset(Assets.search),
               ),
               hintText: 'Search',
 
               suffixIcon: filter ? IconButton(
                 highlightColor: Colors.transparent,
                 splashColor: Colors.transparent,
-                padding: EdgeInsets.all(5.0),
+                padding: EdgeInsets.all(Paddings.small),
                 onPressed: (){
                   showFilter(context);
                 },
                 icon: SvgPicture.asset(
-                  'assets/icons/setting-4.svg',
-                  color: Theme.of(context).primaryColorDark,
+                  Assets.settings,
+                  colorFilter: ColorFilter.mode(Theme.of(context).primaryColorDark, BlendMode.srcIn),
                   //width: 1,
                   //height: 1,
                 ),

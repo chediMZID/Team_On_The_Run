@@ -11,7 +11,19 @@
       "messagenonvu": 3,
       "seen": false,
       "urlimage": "assets/images/User.png",
-      "workState": "On Duty"
+      "workState": "On Duty",
+      "isFavorite": false,
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ? I mmmmmmmmmm mmm  mmm m m mmm mmmmmmmmmm "
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "Comment ça va ?",
@@ -24,7 +36,21 @@
       "messagenonvu": 0,
       "seen": true,
       "urlimage": "assets/images/User1.png",
-      "workState": "On Duty"
+      "workState": "On Duty",
+      "isFavorite": true,
+
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
+
     },
     {
       "LastMessage": "J'ai une question pour toi.",
@@ -37,7 +63,20 @@
       "messagenonvu": 1,
       "seen": false,
       "urlimage": "assets/images/User2.png",
-      "workState": "On Break"
+      "workState": "On Break",
+      "isFavorite": true,
+
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "Je suis impatiente de te revoir !",
@@ -50,7 +89,20 @@
       "messagenonvu": 5,
       "seen": false,
       "urlimage": "assets/images/User3.png",
-      "workState": "On Duty"
+      "workState": "On Duty",
+      "isFavorite": true,
+
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "À plus tard !",
@@ -63,7 +115,20 @@
       "messagenonvu": 0,
       "seen": true,
       "urlimage": "assets/images/User4.png",
-      "workState": "Outdoor"
+      "workState": "Outdoor",
+      "isFavorite": false,
+
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "Où es-tu passé ?",
@@ -76,7 +141,18 @@
       "messagenonvu": 2,
       "seen": true,
       "urlimage": "assets/images/User5.png",
-      "workState": "On Break"
+      "workState": "On Break",
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "Tu veux aller au cinéma ce soir ?",
@@ -88,7 +164,18 @@
       "messagenonvu": 1,
       "seen": false,
       "urlimage": "assets/images/User.png",
-      "workState": "On Break"
+      "workState": "On Break",
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "J'ai besoin de ton aide !",
@@ -101,7 +188,18 @@
       "messagenonvu": 0,
       "seen": true,
       "urlimage": "assets/images/User6.png",
-      "workState": "Outdoor"
+      "workState": "Outdoor",
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "Joyeux anniversaire !",
@@ -114,7 +212,18 @@
       "messagenonvu": 0,
       "seen": true,
       "urlimage": "assets/images/User7.png",
-      "workState": "On Duty"
+      "workState": "On Duty",
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "Je t'envoie les détails par e-mail.",
@@ -127,7 +236,18 @@
       "messagenonvu": 3,
       "seen": true,
       "urlimage": "assets/images/User.png",
-      "workState": "On Break"
+      "workState": "On Break",
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "Je suis en route !",
@@ -139,7 +259,18 @@
       "messagenonvu": 2,
       "seen": false,
       "urlimage": "assets/images/User.png",
-      "workState": "Outdoor"
+      "workState": "Outdoor",
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "Je ne peux pas venir ce soir.",
@@ -152,7 +283,18 @@
       "messagenonvu": 1,
       "seen": false,
       "urlimage": "assets/images/User.png",
-      "workState": "On Duty"
+      "workState": "On Duty",
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "J'ai oublié de te le dire.",
@@ -165,7 +307,18 @@
       "messagenonvu": 0,
       "seen": true,
       "urlimage": "assets/images/User.png",
-      "workState": "On Duty"
+      "workState": "On Duty",
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "Félicitations pour ton nouveau travail !",
@@ -177,7 +330,18 @@
       "messagenonvu": 0,
       "seen": true,
       "urlimage": "assets/images/User.png",
-      "workState": "On Duty"
+      "workState": "On Duty",
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     },
     {
       "LastMessage": "On se voit demain !",
@@ -190,7 +354,18 @@
       "messagenonvu": 1,
       "seen": true,
       "urlimage": "assets/images/User.png",
-      "workState": "Outdoor"
+      "workState": "Outdoor",
+      "messages": [
+        {
+          "sent": false,
+          "text": "Hello , how are you ?"
+        },
+        {
+          "sent" : true,
+          "text": "I m fine bro"
+        }
+
+      ]
     }
   ]
 }

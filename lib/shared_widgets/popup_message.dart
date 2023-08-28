@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:totr/core/strings/assests.dart';
 
 enum Item { newMessage, deleteMessage }
 
@@ -17,26 +19,24 @@ class PopupMessage extends ConsumerWidget {
       onSelected: (item) {
       },
       itemBuilder: (context) => [
-        popupMenuItem(context,Item.newMessage, Icons.add_comment_outlined,
+        popupMenuItem(context,Item.newMessage, Assets.addMessage,
             'New message'),
-        popupMenuItem(context,Item.deleteMessage, Icons.delete_outlined,
+        popupMenuItem(context,Item.deleteMessage, Assets.delete,
             'Delete message'),
-        // Add more menu items as needed
       ],
-      offset: const Offset(0,
-          70), // Add space between the popup menu and the big container
+      offset: const Offset(0, 70),
     );
   }
 }
 
-PopupMenuEntry<Item> popupMenuItem(BuildContext context,Item value, IconData icon, String title) {
+PopupMenuEntry<Item> popupMenuItem(BuildContext context,Item value, String icon, String title) {
   return PopupMenuItem<Item>(
     value: value,
     child: ListTile(
         contentPadding: EdgeInsets.zero,
-        leading: Icon(
+        leading: SvgPicture.asset(
           icon,
-          color: Theme.of(context).primaryColor,
+          colorFilter:ColorFilter.mode( Theme.of(context).primaryColor,BlendMode.srcIn)
         ),
         title: Text(title) //,style: Theme.of(context).textTheme.bodyMedium,),
     ),
